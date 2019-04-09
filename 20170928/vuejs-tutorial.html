@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>vuejs教程 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="前端, css, 编程, js,编程,">
+  
+
+  
+  <meta name="description" content="前端开发必学框架Vue.js我们都知道 Vue 是一个非常典型的 MVVM 框架，它的核心功能：双向数据绑定系统组件化开发系统本文我们就聊聊双向数据绑定，不管你是学过或者没学过，我相信看完本文你都会对 vue 有一个比较简单明确的了解。不过如果哪块有错误，还望指出。">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-09-28
+    </span>
+    
+      <span>
+        | <a href="/categories/前端-css-编程-js/"><i class="fa fa-bookmark"></i>前端, css, 编程, js</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    vuejs教程
+  </h1>
+  
+  <article class="passage-article">
+    <br>很多朋友说自己读不懂，索性就“不敢”去读。要我说凡事均要去尝试，不尝试永远没有读懂的机会，如果你试着读了，并且坚持了，那你就真的能读懂。<p></p>
+<p><strong>读源码也是有技巧的，我的技巧就是： 抓住主线，从宏观到微观。</strong></p>
+<p>我们不能一开始就要求自己读懂所有的细节，基本不现实；最好是能找到一条主线，先把大体流程结构摸清楚，再深入到细节，逐项击破，形成对源码整体的认识。</p>
+<p>比如，我们都知道 Vue 中更新数据后会采用 virtual DOM（虚拟dom）的方式更新 dom。</p>
+<p>这个时候，如果你不了解 virtual DOM，那么听我一句“暂且不要去研究内部具体实现，因为这会使你丧失主线”，而你仅仅需要知道 virtual DOM 分为三个步骤：</p>
+<ol>
+<li>createElement( ): 用 JavaScript 对象(虚拟树) 描述 真实 DOM 对象(真实树)</li>
+<li>diff(oldNode, newNode) : 对比新旧两个虚拟树的区别，收集差异</li>
+<li>patch( ) : 将差异应用到真实 DOM 树</li>
+</ol>
+<p>回过头我们再去研究这个分支，仅此而已。</p>
+<p><img src="http://p1.pstatp.com/large/46d900056aad973c6c09" alt="前端开发必学框架Vue.js"></p>
+<p>上图对于学习过 Vue 的朋友来说应该不陌生吧，来自 Vue 官网深入响应式原理，建议先看图一分钟。</p>
+<p>为了说明原理，我们会把虚拟 dom 这块用 fragment 来代替（这个是1.x版本的实现）。</p>
+<p>并且只考虑数据为对象的情况。记住今天的主线：搞清楚响应式原理，实现一个简单的 MVVM 框架。</p>
+<p>由一个例子开始：</p>
+<p><strong>template：</strong></p>
+<p><img src="http://p3.pstatp.com/large/46db0003a45da52e2ec0" alt="前端开发必学框架Vue.js"></p>
+<p><strong>javascript：</strong></p>
+<p><img src="http://p9.pstatp.com/large/46d800057e0b05695b9e" alt="前端开发必学框架Vue.js"></p>
+<p>我们要解决的问题有：</p>
+<blockquote>
+<p>如何将 data 中的数据渲染到真实的宿主环境中？</p>
+<p>template 是如何被编译成真实环境中可用的 HTML 的？</p>
+<p>如何通过“响应式”修改数据？</p>
+<p>计算属性 getWeChatblog 如何和 data 中的数据绑定的？</p>
+</blockquote>
+<p>带着这些问题开始我们 Vues 的开发。尽量和 Vue 代码保持一致。下面是目录结构：</p>
+<p><img src="http://p3.pstatp.com/large/46d800057e0ae76544c1" alt="前端开发必学框架Vue.js"></p>
+<p>入口文件：</p>
+<p><img src="http://p3.pstatp.com/large/46da00054dd9f4e12258" alt="前端开发必学框架Vue.js"></p>
+<p>export 构造函数 Vues，不清楚 ES6 中 module 可以可以点这里</p>
+<p><strong>初始化</strong></p>
+<p>进入到 ./instance/index.js 就可以看到 Vues 构造函数</p>
+<p><img src="http://p1.pstatp.com/large/46dc0002fe28fc63224a" alt="前端开发必学框架Vue.js"></p>
+<p>其实就是调用 this._init(options)，我们先不看这个函数是做什么的，这里有一个疑惑点，我们并没有在 Vues 构造函数内部申明 _init() 函数呀，那是因为我们调用了一个 initMixin 函数，我们来看看此函数：</p>
+<p><img src="http://p9.pstatp.com/large/46da00054dda29b03e84" alt="前端开发必学框架Vue.js"></p>
+<p>ok，原来 _init() 是在这里定义的，在 Vues 的原型上扩展了此方法。Vue也用了这种形式。</p>
+<p>在 _init() 首先调用了 initState（this） ：</p>
+<p><img src="http://p3.pstatp.com/large/46db0003a45f9a5508b9" alt="前端开发必学框架Vue.js"></p>
+<p>但是这里有个问题，从代码中可看出监听的数据对象是 $options.data，每次需要更新视图，则必须通过 vm._data.dsx= ‘前端开发大师兄’;这样的方式来改变数据。</p>
+<p>这显然不符合 Vue 中的赋值方式，我们所期望的调用方式应该是这样的： vm.dsx = ‘前端开发大师兄’;</p>
+<p>所以这里需要给 Vues 实例添加一个属性代理的方法 _proxyData()，使访问 vm 的属性代理为访问 vm._data 的属性，方法代码如下：</p>
+<p><img src="http://p1.pstatp.com/large/46da00054ddb1de996a3" alt="前端开发必学框架Vue.js"></p>
+<p>我们初始化计算属性 computed，具体就是调用了函数 _initComputed(vm)，来看看代码：</p>
+<p><img src="http://p1.pstatp.com/large/46d900056aae62600eb6" alt="前端开发必学框架Vue.js"></p>
+<p><strong>我们可以看出我们已经两次用到同一个方法——Object.defineProperty()，这就是 Vue 实现响应式数据的利器之一</strong>。举个栗子来说明。</p>
+<p><img src="http://p1.pstatp.com/large/46db0003a460f12283c2" alt="前端开发必学框架Vue.js"></p>
+<p>我们为对象a 通过该方法定义了一个b属性，然后定义了 set 和 get 属性，这样我们给b 赋值就会触发它的 set 属性，我们获取值就会触发它的 get 属性。</p>
+<p>这样我们就可以劫持数据，然后执行我们的操作。详细点可以看这里。</p>
+<p><strong>observe</strong></p>
+<p>这是我们第一个重点，observe 很明显我们会用到观察者模式，事实上Vue也是这么干的。我们看一下 observe() 做了什么？</p>
+<p><img src="http://p9.pstatp.com/large/46d800057e0cacf0fc7f" alt="前端开发必学框架Vue.js"></p>
+<p>就是做了类型判断，之后就直接实例化 Oberver ，参数为 data 对象。</p>
+<p>官网的 Reactivity in Depth 上有这么句话：</p>
+<blockquote>
+<p>When you pass a plain JavaScript object to a Vue instance as its data</p>
+<p>option, Vue.js will walk through all of its properties and convert</p>
+<p>them to getter/setters</p>
+<p>The getter/setters are invisible to the user, but under the hood they</p>
+<p>enable Vue.js to perform dependency-tracking and change-notification</p>
+<p>when properties are accessed or modified</p>
+</blockquote>
+<p>observe 使 data 变成“发布者”，watcher 是订阅者，订阅 data 的变化。那如何使 data 变为“发布者”呢？</p>
+<p>当然是我们的利器—-Object.defineProperty() ，将数据对象 data 的属性转换为访问器属性。看看我们的代码：</p>
+<p><img src="http://p9.pstatp.com/large/46da00054ddd8552a872" alt="前端开发必学框架Vue.js"></p>
+<p>我们遍历 data 对象的所有可配置属性，最终调用了 defineReactive() 函数。</p>
+<p>将需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 set 和 get 。</p>
+<p>先看看 defineReactive() 的我们是怎么实现的：</p>
+<p><img src="http://p1.pstatp.com/large/46db0003a462311fa771" alt="前端开发必学框架Vue.js"></p>
+<p>这个地方有一个值得思考的点，如果修改一个数组的成员，该成员是一个对象，那只需要递归对数组的成员进行双向绑定即可。</p>
+<p>但这时候出现了一个问题，如果我们进行 pop、push 等操作的时候，push 进去的对象根本没有进行过双向绑定，更别说 pop 了，那么我们如何监听数组的这些变化呢？</p>
+<p>Vue.js 提供的方法是重写 push、pop、shift、unshift、splice、sort、reverse 这七个数组方法。</p>
+<p>修改数组原型方法的代码可以参考observer/array.js 以及 observer/index.js。</p>
+<p>还有就是利用 vue.set() ,借用官方的 API</p>
+<p><img src="http://p3.pstatp.com/large/46d60005b8ad35b73d02" alt="前端开发必学框架Vue.js"></p>
+<p><strong>get </strong>的方法主要用来进行<strong>依赖收集</strong>，就是添加订阅者。</p>
+<p>所以我们只要在最开始进行一次 render，那么所有被渲染所依赖的 data 中的数据就会被 getter 收集到 Dep 的 subs 中去。</p>
+<p><strong>set </strong>方法会在对象被修改的时候触发（不存在添加属性的情况，添加属性请用Vue.set），这时候 set 会通知闭包中的 Dep，Dep 中有一些订阅了这个对象改变的 Watcher 观察者对象，Dep 会通知 Watcher 对象更新视图。</p>
+<p>我们用一个简单的栗子来说明观察者模式：</p>
+<p><img src="http://p3.pstatp.com/large/46d800057e1178f65857" alt="前端开发必学框架Vue.js"></p>
+<p>那应用到我们这里就是：每个 data 属性值在 defineReactive 函数监听处理的时候，添加一个主题对象，当 data 属性发生改变,通过 set 函数去通知所有的观察者们。</p>
+<p>那么如何添加观察者们呢，就是在 complie 函数编译 template 时，通过初始化 value 值，触发 set 函数，在 set 函数中为主题对象添加观察者。有点难理解？直接看代码就明白了。</p>
+<p>ok，我们继续。看看我们的 Dep ：</p>
+<p><img src="http://p3.pstatp.com/large/46d800057e105e3002d2" alt="前端开发必学框架Vue.js"></p>
+<p>那么你可能有疑问了。。谁是订阅者。。对，没错就是 Watcher。。一旦 dep.notify()</p>
+<p>就遍历订阅者，也就是 Watcher，并调用他的 update() 方法。</p>
+<p><strong>Watcher</strong></p>
+<p>如何实现一个 Watcher，通过上面的分析我可以确定得要一个 update() 方法。见下图：</p>
+<p><img src="http://p9.pstatp.com/large/46dc0002fe2d1e9df1b4" alt="前端开发必学框架Vue.js"></p>
+<p>很关键的一个地方就是 this.value = this.get() ,这个就是我们之前说的最开始要进行一次 render，我们看 get() 实现：</p>
+<p><img src="http://p1.pstatp.com/large/46d900056ab16f50960e" alt="前端开发必学框架Vue.js"></p>
+<p>这个最关键了，主要做了以下几件事：</p>
+<ol>
+<li>把当前 watcher 赋值给 Dep.target</li>
+<li>获取 value 值就会触发 Oberver 中定义的 get</li>
+<li>执行 dep.append() 添加订阅者</li>
+<li>重新将 Dep.target 赋值为 null</li>
+<li>返回 vaule 值</li>
+</ol>
+<p><strong>关于 notify</strong></p>
+<p>当监听的数据赋值就会被 set 拦截，然后执行 dep.notify() ，遍历订阅者（watcher）执行其 update() 方法，update 调用的其实是 this.run() 自己的 run 方法。我们看看：</p>
+<p><img src="http://p1.pstatp.com/large/46db0003a4650261a3ca" alt="前端开发必学框架Vue.js"></p>
+<p>有一个值得注意的地方，this.cb.call(this.vm, value, oldVal); 这个 cb 是什么？没错就是我们在编译 template 的时候为每一个指令绑定的更新 dom 的函数 。</p>
+<p>最后对 watcher 做一个总结：</p>
+<ol>
+<li><p>每次调用 run() 的时候会触发相应属性的 get</p>
+</li>
+<li><p>get 里面会触发 dep.depend()，继而触发这里的 addDep</p>
+</li>
+<li><p>假如相应属性的 dep.id 已经在当前 watcher 的 depIds 里，说明不是一个新的属性，仅仅是改变了其值而已。</p>
+<p>则不需要将当前 watcher 添加到该属性的 dep 里</p>
+</li>
+<li><p>假如相应属性是新的属性，则将当前watcher添加到新属性的dep里，如通过 vm.child = {name: ‘a’} 改变了 child.name 的值，child.name 就是个新属性。</p>
+<p>则需要将当前watcher(child.name)加入到新的 child.name 的 dep 里，因为此时 child.name 是个新值，之前的 set，dep 都已经失效，如果不把 watcher 加入到新的 child.name 的dep中。</p>
+<p>通过 child.name = xxx 赋值的时候，对应的 watcher 就收不到通知，等于失效了。</p>
+</li>
+<li><p>每个子属性的 watcher 在添加到子属性的 dep 的同时，也会添加到父属性的 dep。</p>
+</li>
+<li><p>监听子属性的同时监听父属性的变更，这样，父属性改变时，子属性的 watcher 也能收到通知进行 update。</p>
+<p>这一步是在 this.get() –&gt; this.getVMVal() 里面完成，forEach 时会从父级开始取值，间接调用了它的 get，触发 addDep()，在整个 forEach 过程，当前 wacher 都会加入到每个父级过程属性的 dep。</p>
+<p>例如：当前 watcher 的是 ‘child.child.name’, 那么 child, child.child, child.child.name 这三个属性的 dep 都会加入当前watcher。</p>
+</li>
+</ol>
+<p>到时候看看 Compile 了。</p>
+<p><strong>Compile</strong></p>
+<p>还记得在 _init() 函数最后那行代码吗？</p>
+<p><img src="http://p3.pstatp.com/large/46d900056ab392580466" alt="前端开发必学框架Vue.js"></p>
+<p>new Compile ,看看做了什么？</p>
+<p><img src="http://p1.pstatp.com/large/46da00054de0874bf327" alt="前端开发必学框架Vue.js"></p>
+<p>注释说的很明白，就不做解释。看看如何转化 fragment :</p>
+<p><img src="http://p1.pstatp.com/large/46da00054ddfe7bcaab7" alt="前端开发必学框架Vue.js"></p>
+<p>就是遍历子节点添加到 fragment 。</p>
+<p><img src="http://p3.pstatp.com/large/46dc0002fe2f8953dd75" alt="前端开发必学框架Vue.js"></p>
+<p>接下来我们就会对 fragment 节点包括子节点遍历，判断其节点类型，然后调用对应的解析函数解析其中的指令。</p>
+<p>我们只看一个 compile：</p>
+<p><img src="http://p3.pstatp.com/large/46dc0002fe3008349806" alt="前端开发必学框架Vue.js"></p>
+<p>内置的指令处理方法：</p>
+<p><img src="http://p3.pstatp.com/large/46da00054de201b592f5" alt="前端开发必学框架Vue.js"></p>
+<p>最终都调用同一个方法bind() ，我们先看看它是做了什么？</p>
+<p><img src="http://p9.pstatp.com/large/46d800057e142a8e83ac" alt="前端开发必学框架Vue.js"></p>
+<ol>
+<li>获取对应指令的更新方法，并执行</li>
+<li>new Watcher，在回调函数执行 updaterFn</li>
+</ol>
+<p>对于第一条，在执行 updaterFn 的时候会调用 this._getVMVal(vm, exp) :</p>
+<p><img src="http://p9.pstatp.com/large/46d70005ad7601d22c99" alt="前端开发必学框架Vue.js"></p>
+<p>很简单，就是获取对应的数据返回。我们看一个text类型的更新函数：</p>
+<p><img src="http://p3.pstatp.com/large/46d70005ad75063acaf3" alt="前端开发必学框架Vue.js"></p>
+<p>这个也是没毛病吧？ok。</p>
+<p>第二条，new Watcher，在回调函数执行 updaterFn。还记得之前讲Watcher时提过一句：</p>
+<p><img src="http://p9.pstatp.com/large/46d900056ab54f6a2e30" alt="前端开发必学框架Vue.js"></p>
+<p>还没记住，我就再贴一次图了</p>
+<p><img src="http://p3.pstatp.com/large/46d900056ab6b88c8597" alt="前端开发必学框架Vue.js"></p>
+<p>哈哈哈，明白了吧。那这个cb啥时执行呢？</p>
+<p>当我们修改了数据就会触发对应的set ，然后就会调用 dep.notify();，通知订阅者，再调用订阅者的 update() 方法，update() 方法就会调用 this.run( ) ，run() 就会执行下面这一句：</p>
+<p><img src="http://p3.pstatp.com/large/46d70005ad77fbc3a32a" alt="前端开发必学框架Vue.js"></p>
+<p>最后补充，input 的 v-model 双向数据绑定，其实就是监听了 input 事件，还是贴代码：</p>
+<p><img src="http://p1.pstatp.com/large/46dc0002fe321f8c51cf" alt="前端开发必学框架Vue.js"></p>
+<p>在 input 事件回调执行 _setVMVal() 方法重新设置一次值。最后再贴一次代码，感觉我贴了好多，不过都是为了把事情说清楚。</p>
+<p><img src="http://p1.pstatp.com/large/46db0003a46a9793819a" alt="前端开发必学框架Vue.js"></p>
+<p>到这我们就完成了一个缩减版的 Vue，当然 Vue 功能远远不止这些。我们这只是凤毛麟角。</p>
+<p>学会这个对于你看真正的 Vue 源码帮助绝对很大，因为逻辑都是相似的。最后再看看下图，回味一下整个过程。</p>
+<p><img src="http://p1.pstatp.com/large/46da00054de3066a82c9" alt="前端开发必学框架Vue.js"></p>
+<p>篇幅比较长，有时还很罗嗦，当然我只是想更清楚的讲解，真怕漏掉那个难点。</p>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170928/vuejs-tutorial.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/编程/"><i class="fa fa-tags"></i>编程</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20171001/shorthand-tips-that-javascript-developers-need-to-know.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170926/crossdomain-problem-2.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

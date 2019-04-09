@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>json与jsonp区别浅析 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="编程,前端,前端,js,">
+  
+
+  
+  <meta name="description" content="董沅鑫的小站">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-05-18
+    </span>
+    
+      <span>
+        | <a href="/categories/编程/"><i class="fa fa-bookmark"></i>编程</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    json与jsonp区别浅析
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>标签： 干货</p>
+<h1 id="json与jsonp区别浅析（json才是目的，jsonp只是手段）"><a href="#json与jsonp区别浅析（json才是目的，jsonp只是手段）" class="headerlink" title="json与jsonp区别浅析（json才是目的，jsonp只是手段）"></a><a href="http://www.cnblogs.com/iovec/p/5312464.html" target="_blank" rel="noopener">json与jsonp区别浅析（json才是目的，jsonp只是手段）</a></h1><p>一言以蔽之，json返回的是一串数据；而jsonp返回的是脚本代码（包含一个函数调用）；</p>
+<p>JSON其实就是JavaScript中的一个对象，跟var obj={}在质上完全一样，只是在量上可以无限扩展。简单地讲，json其实就是JavaScript中的对象(Object)和数组(Array，其实也是对象)这倆好基友在那儿你嵌我我嵌你地套上n多层，以此模拟出许多复杂的数据结构。</p>
+<p>json易于人阅读和编写，也易于机器解析和生成，相对网络传输速率较高，功能型网站前后端往往要频繁大量交换数据，而json凭借其强大的表现力和高颜值渐渐地成为理想的前后端数据交换语言。那xml前辈呢，我觉得应该会像微软的xp那样功成身退。</p>
+<p>同源（不懂同源策略的童鞋请自行百度）下的前后端数据交换格式确定使用json了，那么问题来了，如果我想获取别人网站上提供的数据肿么做到呢？也就是跨域读取数据问题（不要钻牛角说你不需要读取其他网站的数据，相信我，你早晚得需要），json行不行呢？答案是No Way，为什么呢，因为json只是普通的文本格式，能让你这样就轻松拿到那服务端就没有任何安全和保密性可言了，这样的话互联网世界非乱套不可，这个问题那些牛X的规范制定者早就想到了，所以使用了同源策略来限制文件获取。最后的结果就是只有像img、script、iframe这类可以指定src属性的标签有跨域获取别人网站上数据（图片，脚本，源文件其实都是数据）的能力。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--京东商品图片--&gt;</span><br><span class="line">&lt;img src=&quot;http://img30.360buyimg.com/jgsq-productsoa/jfs/t2407/323/1635505465/47386/f2d89d88/56615e00N7a475ee6.jpg&quot; /&gt;</span><br><span class="line">&lt;!--百度CDN--&gt;</span><br><span class="line">&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>看来直接获取json是行不通了，那有没有其他方法能拿到数据呢？于是乎jsonp就这样被聪明的开发者给发现了，为什么说是发现而不是发明呢，因为并没有涉及到任何新技术，就像发现ajax一样。</p>
+<p>jsonp原理是这样的，网站A需要获取网站B的数据，网站B说我给你们一个方法，【1. 你们使用<script src="http://www.B.com/open.js"></script>标签先获取到open.js文件（网站B的责任），这里边有你们需要的数据。2. 你们获取数据后处理数据（总得处理数据吧）的方法名必须命名为foo（数据请求者的责任和义务）】，这里相当于B网站和请求获取数据者之间建立了一个协议，要求请求者务必按照规则办事，如果请求者不能同时遵守上面两条就不能按预期获取数据。额..，这也算相当于建立了一个潜规则吧</p>
+<p>open.js内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;);　　//为什么不直接写成json数据&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;呢，原因很简单，在js文件总得合乎js语法吧</span><br><span class="line">//这也是为什么协议中明确规定处理数据的方法名必须命名为foo，因为B网站是在假定请求者的脚本中已经定义了数据处理方法foo的情况下返回数据；</span><br><span class="line">//不然就会报foo is not defined错误</span><br></pre></td></tr></table></figure>
+<p>网站A脚本须有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    //ToDo..  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>啊！虽然拐了个弯，但数据总算得到了，网站A，网站B都非常高兴，那么问题又来了，网站C说也需要获取网站B的数据，网站B把协议甩给它，网站C拿过来一看，草泥马啊，foo这个名字已经在自己的脚本文件的6868行用过了，而且已经使用在脚本的各个角落，批量替换会导致很多潜在bug啊，网站B情急之下决定把foo改成fool，网站A立马蹦起来，因为自己的网站已经在很多地方使用foo引用了数据。</p>
+<p>为了避免上面情况发生，那些牛X哄哄的开发者使用了动态生成js文件的方法，php版本如下：</p>
+<p>open.php</p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&apos;Content-type: application/javascript&apos;);</span><br><span class="line">$jsonCallback = htmlspecialchars($_REQUEST [&apos;callback&apos;]);    //获取请求者自定义的回调函数名</span><br><span class="line">$jsonData =&apos;&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;&apos;;    //待返回的json数据</span><br><span class="line">echo $jsonCallback . &quot;(&quot; . $jsonData . &quot;)&quot;;    //输出jsonp格式的数据，即一行函数调用语句</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p>额 ..，至于php为什么能返回js格式文件，自行百度。<br>于是网站A用<script src="http://www.B.com/open.php?callback=foo"></script>来请求数据，不需要修改任何变量，返回给A的脚本文件内容是： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;);  //所谓的jsonp，就是一句函数调用，数据都被包裹传递到参数中了，千万别穿个马甲就不认识了</span><br></pre></td></tr></table></figure>
+<p>网站C就用<script src="http://www.B.com/open.php?callback=blah"></script>来请求数据，返回给C的脚本文件内容是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blah(&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;);</span><br></pre></td></tr></table></figure>
+<p>网站N就用<script src="http://www.B.com/open.php?callback=what"></script>来请求数据，返回给N的脚本文件内容是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">what(&#123;&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:23&#125;);</span><br></pre></td></tr></table></figure>
+<p>Problem Solved，大家都取到了期望的数据，并且避免了命名冲突。</p>
+<p>jsonp全名叫做json with padding，很形象，就是把json对象用符合js语法的形式包裹起来以使其它网站可以请求得到，也就是将json数据封装成js文件；</p>
+<p>json是理想的数据交换格式，但没办法跨域直接获取，于是就将json包裹(padding)在一个合法的js语句中作为js文件传过去。这就是json和jsonp的区别，json是想要的东西，jsonp是达到这个目的而普遍采用的一种方法，当然最终获得和处理的还是json。所以说json是目的，jsonp只是手段。json总会用到，而jsonp只有在跨域获取数据才会用到。</p>
+<p>理解了json和jsonp的区别之后，其实ajax里的跨域获取数据就很好理解和实现了，同源时候并没有什么特别的，直接取就行，跨域时候需要拐个弯来达到目的。</p>
+<p>附上jquery中ajax请求json数据实例：</p>
+<p>（同源）：</p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:&quot;persons.json&quot;,</span><br><span class="line">    success:function(data)&#123;</span><br><span class="line">　　　　console.log(data);</span><br><span class="line">　　 　 //ToDo..</span><br><span class="line">　 &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p>（跨域）</p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:&quot;http://www.B.com/open.php?callback=?&quot;,</span><br><span class="line">    dataType:&quot;jsonp&quot;,</span><br><span class="line">    success:function(data)&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        //ToDo..</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p>jquery已把jsonp封装进ajax，很合理，因为毕竟绝大多数的jsonp请求都是ajax，关于jquery的ajax具体用法请自行百度，另外要注意的一点就是不同的网站提供的数据接口的$_REQUEST [‘callback’]中不一定绝对是callback也可能是cb,cbk等，具体使用时务必阅读服务端提供的有关接口使用的详细文档。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端"><span class="toc-text">前端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#json与jsonp区别浅析（json才是目的，jsonp只是手段）"><span class="toc-text">json与jsonp区别浅析（json才是目的，jsonp只是手段）</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170518/analysis-of-the-difference-between-json-and-jsonp.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/前端/"><i class="fa fa-tags"></i>前端</a>
+     
+      <a href="/tags/js/"><i class="fa fa-tags"></i>js</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170608/js-execution-mechanism.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170514/javascript-practical-tips-and-writing-suggestions.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>电脑小技巧 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="工具,css,前端,前端,Windows,Config,">
+  
+
+  
+  <meta name="description" content="董沅鑫的小站">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-01-30
+    </span>
+    
+      <span>
+        | <a href="/categories/工具/"><i class="fa fa-bookmark"></i>工具</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    电脑小技巧
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="程序员开发-css3-动画-实现自己的代码库"><a href="#程序员开发-css3-动画-实现自己的代码库" class="headerlink" title="程序员开发 css3 动画-实现自己的代码库"></a>程序员开发 css3 动画-实现自己的代码库</h1><p>1.前言</p>
+<p>在月初的时候，发了 CSS3 热身实战–过渡与动画（实现炫酷下拉，手风琴，无缝滚动）。js 的代码库也发过两次，两篇文章。之前也写了 css3 的热身实战，既然热身完了，是时候开始封装 css3 的代码库了，相比起 js 的代码库，css3 的代码库的逻辑性就更加简单了！可以说只要打上注释和一张效果图就可以让大家明白了其中的原理了！</p>
+<p>我写代码库的时候，动画效果主要是参考了三个开源项目，nec，hover.css，animate.css 这三个项目的质量非常的高，建议大家去了解。</p>
+<p>声明</p>
+<p>1.下面将会看到很多个</p>
+<p><img src="http://p3.pstatp.com/large/320f0002a71d3f30d344" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>类似这样的举行，都是 span 标签，样式都是给出的 css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span>&#123; <span class="attribute">cursor</span>: pointer; <span class="attribute">height</span>: <span class="number">40px</span>; <span class="attribute">line-height</span>: <span class="number">40px</span>; <span class="attribute">text-align</span>: center; <span class="attribute">display</span>: inline-block; <span class="attribute">color</span>: <span class="number">#333</span>; <span class="attribute">background</span>: <span class="number">#ccc</span>; <span class="attribute">min-width</span>: <span class="number">80px</span>; <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
+<p>2.关于 class 命名方式，l 代表 left，r 代表 right，t 代表 top，b 代表 bottom，c 代表 center，m 代表 middle。切记</p>
+<blockquote>
+<p>文章比较长，但是说得就是两点，大家看得也应该会很快</p>
+<p>1.写出一些 hover 动画和预设动画的运行效果，并且贴出代码</p>
+<p>2.发现几个动画组合，和加上无限动画，反向动画，会有不一样的效果，并且继续研究，看下能不能研究出不一样的东西！</p>
+</blockquote>
+<p>2.hover 动画</p>
+<p>说了那么多，是时候进入正文了，</p>
+<p>首先是 hover 动画，关于这个概念，我解释下，就是鼠标移上去触发的动画，就是触发了鼠标的 hover 事件时能看到的动画！下面，按照类型，一个一个的写！</p>
+<p>2-1.简单动画</p>
+<p>2-1-1 大小变化</p>
+<p><img src="http://p3.pstatp.com/large/32140002c6011423e743" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-big"</span>&gt;</span>big<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-small"</span>&gt;</span>small<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-big</span>,<span class="selector-class">.ech-small</span> &#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-2 形状变化</p>
+<p><img src="http://p3.pstatp.com/large/321200009430a3950910" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-l"</span>&gt;</span>skew-l<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-r"</span>&gt;</span>skew-r<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-l-t"</span>&gt;</span>skew-l-t<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-r-t"</span>&gt;</span>skew-r-t<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-l-b"</span>&gt;</span>skew-l-b<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-skew-r-b"</span>&gt;</span>skew-r-b<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-skew-l</span>, <span class="selector-class">.ech-skew-r</span>, <span class="selector-class">.ech-skew-l-t</span>, <span class="selector-class">.ech-skew-r-b</span>, <span class="selector-class">.ech-skew-l-b</span>, <span class="selector-class">.ech-skew-r-t</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-3 旋转角度变化</p>
+<p><img src="http://p3.pstatp.com/large/32110004d5a36cfcdc56" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-grow-rotate-l&quot;&gt;grow-rotate-l&lt;/span&gt;&lt;span class=&quot;ech-grow-rotate-r&quot;&gt;grow-rotate-r&lt;/span&gt;&lt;span class=&quot;ech-rotate5&quot;&gt;rotate5&lt;/span&gt;&lt;span class=&quot;ech-rotate15&quot;&gt;rotate15&lt;/span&gt;&lt;span class=&quot;ech-rotate30&quot;&gt;rotate30&lt;/span&gt;&lt;span class=&quot;ech-rotate60&quot;&gt;rotate60&lt;/span&gt;&lt;span class=&quot;ech-rotate90&quot;&gt;rotate90&lt;/span&gt;&lt;span class=&quot;ech-rotate180&quot;&gt;rotate180&lt;/span&gt;&lt;span class=&quot;ech-rotate360&quot;&gt;rotate360&lt;/span&gt;&lt;span class=&quot;ech-rotate-5&quot;&gt;rotate-5&lt;/span&gt;&lt;span class=&quot;ech-rotate-15&quot;&gt;rotate-15&lt;/span&gt;&lt;span class=&quot;ech-rotate-30&quot;&gt;rotate-30&lt;/span&gt;&lt;span class=&quot;ech-rotate-60&quot;&gt;rotate-60&lt;/span&gt;&lt;span class=&quot;ech-rotate-90&quot;&gt;rotate-90&lt;/span&gt;&lt;span class=&quot;ech-rotate-180&quot;&gt;rotate-180&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-grow-rotate-l</span>,<span class="selector-class">.ech-grow-rotate-r</span>, <span class="selector-class">.ech-rotate5</span>, <span class="selector-class">.ech-rotate15</span>, <span class="selector-class">.ech-rotate30</span>, <span class="selector-class">.ech-rotate60</span>, <span class="selector-class">.ech-rotate90</span>, <span class="selector-class">.ech-rotate180</span>, <span class="selector-class">.ech-rotate360</span>, <span class="selector-class">.ech-rotate-5</span>,<span class="selector-class">.ech-rotate-15</span>, <span class="selector-class">.ech-rotate-30</span>, <span class="selector-class">.ech-rotate-60</span>, <span class="selector-class">.ech-rotate-90</span>, <span class="selector-class">.ech-rotate-180</span>&#123;<span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-4 位移变化</p>
+<p><img src="http://p3.pstatp.com/large/32140002c602c8db7856" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-t"</span>&gt;</span>up<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-t</span>,<span class="selector-class">.ech-bottom</span>,<span class="selector-class">.ech-top</span>,<span class="selector-class">.ech-right</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-5 边框变化</p>
+<p><img src="http://p1.pstatp.com/large/320a0001e3c21c7f03b9" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-border"</span>&gt;</span>border<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-border</span>,<span class="selector-class">.ech-border-in</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-6 阴影变化</p>
+<p><img src="http://p1.pstatp.com/large/320f0002a71f373cd680" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>(gif 图看得效果太难看了，大家可以去 github 下载看)</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-shadow"</span>&gt;</span>shadow<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-shadow</span>,<span class="selector-class">.ech-shadow-in</span>,<span class="selector-class">.ech-shadow-write</span>,<span class="selector-class">.ech-shadow-big</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-7 透明度变化</p>
+<p><img src="http://p1.pstatp.com/large/32120000942fa98cf879" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-fade-out"</span>&gt;</span>fade-out<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-fade-out</span>,<span class="selector-class">.ech-fade-in</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-1-8 圆角变化</p>
+<p><img src="http://p3.pstatp.com/large/320a0001e3c41db58188" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-rectangle"</span>&gt;</span>rectangle<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-radius"</span>&gt;</span>radius<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ech-radius</span>,<span class="selector-class">.ech-rectangle</span>&#123; <span class="attribute">transition</span>: all .<span class="number">4s</span>;</span><br></pre></td></tr></table></figure>
+<p>2-2.颜色动画效果</p>
+<p>这部分的动画主要是利用:before 和:after 进行实现的，所以，大家如果使用的时候，切记:before 和:after 没有被占用，否则会显示不正常</p>
+<p>2-2-1.颜色块变化</p>
+<p><img src="http://p9.pstatp.com/large/32110004d5a0af60fd98" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>因为这块内容很像，我就一大块一起说，大家看代码的时候要留神注意。看代码看不明白，直接在 github 下载，然后运行文件，边调试边看效果！这样大家就很容易明白了！</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-fade"</span>&gt;</span>fade<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*当前元素设置相对定位*/</span><span class="selector-class">.ech-fade</span>, <span class="selector-class">.ech-fade-t</span>, <span class="selector-class">.ech-fade-b</span>, <span class="selector-class">.ech-fade-l</span>, <span class="selector-class">.ech-fade-r</span>, <span class="selector-class">.ech-fade-c-in</span>, <span class="selector-class">.ech-fade-m-in</span>, <span class="selector-class">.ech-fade-m-out</span>, <span class="selector-class">.ech-fade-c-out</span>, <span class="selector-class">.ech-bounce-t</span>, <span class="selector-class">.ech-bounce-b</span>, <span class="selector-class">.ech-bounce-r</span>, <span class="selector-class">.ech-bounce-l</span> &#123; <span class="attribute">position</span>: relative; <span class="attribute">transition</span>: all .<span class="number">3s</span>; <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>2-2-2.颜色上下划线变化</p>
+<p>这里也是一大块一起说，看代码可能会更乱，所以大家看代码的时候要更加留神注意。看代码看不明白，直接在 github 下载，然后运行文件，边调试边看效果！这样大家就很容易明白了！</p>
+<p><img src="http://p1.pstatp.com/large/320f0002a71e4ea99694" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ech-overline-l"</span>&gt;</span>overline-l<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*上划线和下划线变化 当前元素样式设置相对定位*/</span><span class="selector-class">.ech-overline-r</span>, <span class="selector-class">.ech-overline-l</span>, <span class="selector-class">.ech-underline-r</span>, <span class="selector-class">.ech-underline-l</span>, <span class="selector-class">.ech-underline-c</span>, <span class="selector-class">.ech-overline-c</span>, <span class="selector-class">.ech-underline-c-out</span>, <span class="selector-class">.ech-overline-c-out</span>&#123; <span class="attribute">position</span>: relative; <span class="attribute">transition</span>: all .<span class="number">3s</span>; <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>2-2-3 箭头动画</p>
+<p><img src="http://p3.pstatp.com/large/322b0000516e097769bd" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-arrow-l&quot;&gt;arrow-l&lt;/span&gt;&lt;span class=&quot;ech-arrow-r&quot;&gt;arrow-r&lt;/span&gt;&lt;span class=&quot;ech-arrow-t&quot;&gt;arrow-t&lt;/span&gt;&lt;span class=&quot;ech-arrow-b&quot;&gt;arrow-b&lt;/span&gt;&lt;span class=&quot;ech-arrow-l-move&quot;&gt;arrow-l&lt;/span&gt;&lt;span class=&quot;ech-arrow-r-move&quot;&gt;arrow-r&lt;/span&gt;&lt;span class=&quot;ech-arrow-t-move&quot;&gt;arrow-t&lt;/span&gt;&lt;span class=&quot;ech-arrow-b-move&quot;&gt;arrow-b&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-arrow-l, .ech-arrow-r, .ech-arrow-t, .ech-arrow-b, .ech-arrow-l-move, .ech-arrow-r-move, .ech-arrow-t-move, .ech-arrow-b-move&#123; position: relative; transition: all .3s; z-index: 1;</span><br></pre></td></tr></table></figure>
+<p>2-3 较复杂动画</p>
+<p>2-1 和 2-2 的内容，都是利用过渡实现效果，那么这一块就是利用动画来实现效果！区别就是 hover 的写法是增加一个动画，动画的封装，难度就在于创意。</p>
+<p>2-3-1 闪烁效果</p>
+<p><img src="http://p3.pstatp.com/large/31fc0001f0dde8c2a102" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-flash&quot;&gt;flash&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-flash:hover &#123; animation: flash .5s ease;</span><br></pre></td></tr></table></figure>
+<p>2-3-2 闹钟振铃效果</p>
+<p><img src="http://p3.pstatp.com/large/322b0000516f09796a2d" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-shake-time&quot;&gt;shake-time&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*仿闹钟振铃效果*/.ech-shake-time:hover &#123; animation: shake-time 1s ease;</span><br></pre></td></tr></table></figure>
+<p>2-3-3 摇摆效果</p>
+<p><img src="http://p3.pstatp.com/large/31fc0001f0decf6202fa" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-wobble-c&quot;&gt;wobble-c&lt;/span&gt;&lt;span class=&quot;ech-wobble-t&quot;&gt;wobble-t&lt;/span&gt;&lt;span class=&quot;ech-wobble-b&quot;&gt;wobble-b&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-wobble-t, .ech-skew-r-t, .ech-skew-l-t &#123; transform-origin: 0 100%;</span><br></pre></td></tr></table></figure>
+<p>2-3-4 摇晃效果</p>
+<p><img src="http://p3.pstatp.com/large/320a0001e3c576ce518a" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-swing&quot;&gt;swing&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-swing:hover &#123; animation: swing .5s ease alternate;</span><br></pre></td></tr></table></figure>
+<p>2-3-5 抖动效果</p>
+<p><img src="http://p3.pstatp.com/large/320a0001e3c657f855aa" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-shake&quot;&gt;shake&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-shake:hover &#123; animation: shake .5s ease;</span><br></pre></td></tr></table></figure>
+<p>2-3-6 弹跳效果</p>
+<p><img src="http://p1.pstatp.com/large/320f0002a72226cd81e4" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;ech-bounce&quot;&gt;bounce&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ech-bounce:hover &#123; animation: bounce 1s ease;</span><br></pre></td></tr></table></figure>
+<p>3.预设动画</p>
+<p>受限于篇幅的长度，我也不想分开两篇文章写。关于这个预设动画，我就简单的说一下，写一下，我直接给一个大概的操作演示，和完整的代码！反正写法这个也是比较单一，无非就是改一个类名而已。难的是动画的一些编写，这个需要创意，大家可以上网参考。</p>
+<p><img src="http://p3.pstatp.com/large/322b000051713f40367c" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>（不知道为什么，gif 截大图放不上来，就放了张小的，大家结果下面的 jpg 一起看把，就是通过下面的按钮，展示动画，大家也可以在 github 下面下载代码看下）</p>
+<p><img src="http://p3.pstatp.com/large/320f0002a720ffaa5b81" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p><strong>（完整代码比较多，这里贴出，但是建议大家稍微看一下，过一下就好，因为这个只看代码是会懵逼的，要在浏览器打开文件，一看调试一边看，这样会很简单，很容易的明白）</strong></p>
+<p>html 代码</p>
+<p><img src="http://p9.pstatp.com/large/32140002c915d3b1499c" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>代码过长需要文档版源码来我的前端群 657137906，源码已经上传了！</p>
+<p>css</p>
+<p><img src="http://p9.pstatp.com/large/32110004d7dcc47a2b1b" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>代码过长需要文档版源码来我的前端群 657137906，源码已经上传了！</p>
+<p>4.未知探索</p>
+<p>好了，说完了 hover 动画和预设动画，我开发的时候，发现了这样一些好玩的东西，我也准备继续研究，也建议大家玩下，说不定哪天做出了了不起的东西！如下面的栗子！</p>
+<blockquote>
+<p>下面说的动画，不分 hover 动画和预设动画，大家注意</p>
+</blockquote>
+<p>4-1.无限执行动画</p>
+<p>一个普通的动画，加上无限执行，一般会出现很友好的效果，</p>
+<p><img src="http://p9.pstatp.com/large/32140002c603d42b8528" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>但是有些时候的效果差强人意</p>
+<p><img src="http://p3.pstatp.com/large/320f0002a7231d5b31e1" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>4-2.反向动画</p>
+<p>在 4-1 的基础上，加上方向执行动画，也会有不一样的效果</p>
+<p>没加反向动画效果</p>
+<p><img src="http://p3.pstatp.com/large/321200009432d00a970c" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>加上反向动画效果</p>
+<p><img src="http://p1.pstatp.com/large/320f0002a72197d51805" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>4-3.组合效果</p>
+<p>阴影效果和其它效果的组合，(gif 看不出阴影效果，哎。。)</p>
+<p><img src="http://p1.pstatp.com/large/322b0000517082ead70b" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>上面的几个的栗子</p>
+<p>css 代码不变，区别是 html 代码，多加了一些类名</p>
+<p><img src="http://p3.pstatp.com/large/32110004d5a28160f9b0" alt="程序员开发css3动画-实现自己的代码库"></p>
+<p>上面几个是我在开发时候发现的栗子，这个我会继续研究，也希望大家能研究，研究出什么好玩的效果，或者动画写法，欢迎分享！</p>
+<p>5.鸡肋选择</p>
+<p><strong>在写 css3 代码库的时候，我也发现封装 css3 的一个鸡肋情况。</strong></p>
+<p>1.css3 的效果太过于灵活，多样，封装非常容易出现众口难调的情况，以及每个项目的效果可能出现效果差不多，但就是不一样，这样就是说封装的库并不适合用在项目上。</p>
+<p>2.还有一点在于，css3 效果基本上每一个项目都是有用到，并且是常用，但是平常项目要用到的 css3 效果最多也就 10 个，而且也不难，手写很快可以实现，根本没必要去引一个插件或者库。</p>
+<p><strong>但是最后我还是坚持写下去了，原因如下</strong></p>
+<p>1.如果项目开发，对动画效果的要求基本不会达到非常的严格的地步，我完全可以多引一个文件，增加我的开发效率，压缩过后的文件可能只有 10K 左右，可以接受。</p>
+<p>2.就算在项目用不上，我也可以当作是练手，学习的作用。如果以后项目需要动画效果，即使动画效果跟我封装的不一样，我也可以看着来进行修改。</p>
+<p>3.就算开发的时候没使用上这个库，万一有些动画，我写过，但是忘了怎么写，也可以回头看怎么实现！</p>
+<p>4.如果开发的时候，不知道放什么效果好，这个库，也能起到一定的参考作用！</p>
+<p>5.现在多写几个，说不定起到一个发散思维的作用，写了这些效果，想到了另一些效果怎么写，或者想到还有什么效果可以写，这个也是非常好的一个结果和收获！</p>
+<p>6.小结</p>
+<p>好了，css3 的代码库封装到这里就差不多了，如果你能看完全篇，你已经是勇士了，证明你很有耐心，看完马上掌握，这个对于大家来说问题不大，毕竟不是什么逻辑性强的代码。我想要的效果虽然都实现了，不过以后肯定也是要修改完善的(至少看源码的话，我自己看得都有点乱，但是一时之间又不知道该如果整理，就先放上去了)。话说回来，通过以上的案例，希望能帮到大家，最理想就是能起到发散思维的作用，就是通过我的案例，能让大家知道其它的一些动画怎么做，或者想到有什么好看动画效果。web 前端这一行，最重要的就是多练，大家除了看别人的项目，博客之外，一定要多练，多写，这样进步才会更快，知识才会记得更牢。</p>
+<h1 id="如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频"><a href="#如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频" class="headerlink" title="如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频"></a>如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频</h1>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#程序员开发-css3-动画-实现自己的代码库"><span class="toc-text">程序员开发 css3 动画-实现自己的代码库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频"><span class="toc-text">如果想看到更加系统的文章和学习方法经验可以关注我的微信公众号：‘前端根据地’关注后回复‘给我资料’可以领取一套完整的学习视频</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170130/computer-tips.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/前端/"><i class="fa fa-tags"></i>前端</a>
+     
+      <a href="/tags/Windows/"><i class="fa fa-tags"></i>Windows</a>
+     
+      <a href="/tags/Config/"><i class="fa fa-tags"></i>Config</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170130/idea-plugin-summary.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20161227/open-source-tool.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

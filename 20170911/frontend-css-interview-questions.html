@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>前端—css面试题 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="前端,css,编程,编程,">
+  
+
+  
+  <meta name="description" content="董沅鑫的小站">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-09-11
+    </span>
+    
+      <span>
+        | <a href="/categories/前端-css-编程/"><i class="fa fa-bookmark"></i>前端,css,编程</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    前端—css面试题
+  </h1>
+  
+  <article class="passage-article">
+    <p>标签： 编程</p>
+<hr>
+<h1 id="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"><a href="#前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！" class="headerlink" title="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></a>前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！</h1><p><img src="http://p1.pstatp.com/large/2a460004de1b6ce51869" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<h1 id="2016年BAT公司常见的Web前端面试题整理"><a href="#2016年BAT公司常见的Web前端面试题整理" class="headerlink" title="2016年BAT公司常见的Web前端面试题整理"></a>2016年BAT公司常见的Web前端面试题整理</h1><p>这篇文章分享之前我还是要推荐下我自己的前端群：595549645，不管你是小白还是大牛，小编我都挺欢迎，不定期分享干货，包括我自己整理的一份2017最新的前端资料和零基础入门教程，欢迎初学和进阶中的小伙伴。</p>
+<p><strong>1.JavaScript是一门什么样的语言，它有哪些特点？</strong></p>
+<p>没有标准答案。</p>
+<p><strong>2.JavaScript的数据类型都有什么？</strong></p>
+<p>基本数据类型：String,boolean,Number,Undefined</p>
+<p>引用数据类型：Object(Array,Date,RegExp,Function,Null)</p>
+<p>那么问题来了，如何判断某变量是否为数组数据类型？</p>
+<ul>
+<li>方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效</li>
+<li>方法二.obj instanceof Array 在某些IE版本中不正确</li>
+<li>方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性，最好的方法如下：　　</li>
+</ul>
+<p><img src="http://p3.pstatp.com/large/2a460004cc4e474ad030" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><img src="http://p3.pstatp.com/large/2c220000130af505e498" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><strong>3.已知ID的Input输入框，希望改变文本框的背景颜色，怎么做？(原生JS)</strong></p>
+<p><img src="http://p9.pstatp.com/large/2c210000610287d8c488" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><strong>4.希望获取到页面中所有的checkbox怎么做？(原生JS)</strong><br><img src="http://p1.pstatp.com/large/2a480002fb972ec3e913" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><img src="http://p3.pstatp.com/large/2c2100006f7a530776c9" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><strong>5.Html事件绑定有几种方式？</strong></p>
+<ul>
+<li>直接在DOM里绑定事件：<div onclick="”test()”"></div> 这种方式称为原生事件或者属性事件</li>
+<li>在JS里通过onclick绑定：xxx.onclick = test</li>
+<li>Dom标准通过事件添加进行绑定：addEventListener(“click”,test, false) //第三个参数为是否支持事件捕捉</li>
+<li>IE事件：attachEvent(“onclick”,test)</li>
+</ul>
+<p>那么问题来了，Javascript的事件流模型都有什么？</p>
+<ul>
+<li>“事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的</li>
+<li>目标事件</li>
+<li>“事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播</li>
+<li>“DOM事件流”：三个阶段：事件捕捉，目标阶段，事件冒泡</li>
+<li>IE事件流：目标事件和事件冒泡</li>
+</ul>
+<p>阻止事件冒泡的方式：</p>
+<p><img src="http://p3.pstatp.com/large/2a440000167480407d12" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>阻止事件的默认行为：<img src="http://p1.pstatp.com/large/2a460004cedaa8ccde1b" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>6.<strong>看下列代码，将会输出什么?</strong>(变量声明提升)<br><img src="http://p1.pstatp.com/large/2a460004cefebdc22f1d" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>上面的代码经过变量提升后，等价于下面的代码<img src="http://p9.pstatp.com/large/2a4500017955c97b3b79" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>再看下面的输出结果：<img src="http://p3.pstatp.com/large/2a440000172e381de599" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>此时打印a函数，不会打印1，因为下面是一个函数表达式，跟变量声明一样，只会把var a;提升到最前面，a=function(){}保留，会覆盖前面的a=1;因此打印函数。</p>
+<p>此题目，我再百度面试的时候问到过。</p>
+<p><strong>7.掌握样式的优先级。</strong></p>
+<p>!important &gt; style(内联) &gt; Id(权重100) &gt; class(权重10) &gt; 标签（权重1） 同类别的样式，后面的会覆盖前面的。</p>
+<p>百度视频部门一道面试题是这样的：</p>
+<p><img src="http://p1.pstatp.com/large/2a4700048012052f6a35" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>8.<strong>怎样添加、移除、移动、复制、创建和查找节点</strong></p>
+<p>1）创建新节点</p>
+<p>createDocumentFragment() //创建一个DOM片段</p>
+<p>createElement() //创建一个具体的元素</p>
+<p>createTextNode() //创建一个文本节点</p>
+<p>2）添加、移除、替换、插入</p>
+<p>appendChild() //添加</p>
+<p>removeChild() //移除</p>
+<p>replaceChild() //替换</p>
+<p>insertBefore() //插入</p>
+<p>3）查找</p>
+<p>getElementsByTagName() //通过标签名称</p>
+<p>getElementsByName() //通过元素的Name属性的值</p>
+<p>getElementById() //通过元素Id，唯一性</p>
+<p>9.用js写一个正则匹配标签中是否包含一个class(百度面试题)</p>
+<p><img src="http://p3.pstatp.com/large/2a47000480cda1585719" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>10.事件循环绑定，输出结果（考察闭包）<img src="http://p3.pstatp.com/large/2a4500017aa203693e38" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>通过闭包封装后的代码：<img src="http://p3.pstatp.com/large/2a4500017ae09bdf3b60" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>闭包我所知道的两个作用：</p>
+<p>a.通过闭包可以把局部变量传递出来，就是通过闭包可以访问函数内部的变量，比如下面的代码：</p>
+<p><img src="http://p3.pstatp.com/large/2c2200000b6bf6ccdd8f" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>通过闭包就可以访问函数内部的局部变量，并且实现数量累加。</p>
+<p>b.使用闭包可以避免空间污染，闭包内部的变量都只能在内部使用，这样有效避免和外部变量的混淆。（个人理解）</p>
+<p>11.<strong>js数组去重。</strong></p>
+<p><img src="http://p3.pstatp.com/large/2c21000067342eeb6518" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>12.两个div标签，如何控制标签左边固定，右边自适应，左边div标签的宽度为100px（滴滴面试题）<img src="http://p3.pstatp.com/large/2a4400001cbde998e309" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>滴滴面试起初问我，现在有并排的三个Div框，如何实现三个div都自适应，我当时就懵了，这个考察的是display:table的使用<img src="http://p3.pstatp.com/large/2a460004d5080bba2751" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><img src="http://p1.pstatp.com/large/2c2200000ccf0d480b07" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>13.<strong>实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制</strong></p>
+<ul>
+<li>考察点1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚</li>
+<li>考察点2：是否知道如何判断一个变量是什么类型的</li>
+<li>考察点3：递归算法的设计</li>
+</ul>
+<p><img src="http://p3.pstatp.com/large/2a47000485e37c0f4c02" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p><strong>14.继承的使用</strong><br><img src="http://p3.pstatp.com/large/2a4500017f77b11c2564" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>15.<strong>请评价以下代码并给出改进意见</strong></p>
+<p><img src="http://p1.pstatp.com/large/2a480003035fe154cbdc" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>评价：</p>
+<ul>
+<li>不应该在if和else语句中声明addListener函数，应该提前先声明，定义全局变量；</li>
+<li>不需要使用window.addEventListener或document.all来进行检测浏览器，应该使用能力检测；</li>
+<li>由于attachEvent在IE中有this指向问题，所以调用它时需要处理一下</li>
+</ul>
+<p>改进如下：</p>
+<p><img src="http://p1.pstatp.com/large/2c2100006967ddbd1089" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<p>16.<strong>对作用域上下文和this的理解，看下列代码：</strong><br><img src="http://p9.pstatp.com/large/2a470004872bc4794a95" alt="前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"></p>
+<ol>
+<li>这个文章到这里就说完了，想要前端学习资料的进我的群自助领取，已经上传到群文件里了：595549645，欢迎初学和进阶中的小伙伴。</li>
+</ol>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！"><span class="toc-text">前端HR熬夜整理，2017年BAT面试题大全集，程序员收藏了，只发一次！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2016年BAT公司常见的Web前端面试题整理"><span class="toc-text">2016年BAT公司常见的Web前端面试题整理</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170911/frontend-css-interview-questions.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/编程/"><i class="fa fa-tags"></i>编程</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170911/crossdomain-problem-solving.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170825/the-43-tools-necessary-for-new-media-are-coming-to-watch.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

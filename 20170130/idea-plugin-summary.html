@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>IDEA插件汇总 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Configuration,Windows,Config,">
+  
+
+  
+  <meta name="description" content="IDEA 插件汇总标签： 插件IDEA 插件安装 IDEA 的插件安装非常简单，对于很多插件来说，只要你知道插件的名字就可以在 IDEA 里面直接安装在线安装如图 :Preferences—&amp;gt;Plugins—&amp;gt; 查找所需插件 —&amp;gt;Install 或者离线安装Preferences—&amp;gt;Plugins—&amp;gt;Install plug from disk —&amp;gt; 选择下载好的插件安装在 IntelliJ IDEA 的安装讲解中我们其实已经知道，IntelliJ IDEA 本身很多功能也都是通过插件的方式来实现的，只是 IntelliJ IDEA 本身就是它自己的插件平台最大的开发者而已，开发了很多优秀的插件。官网插件库：插件https://plugins.jetbrains.com/">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-01-30
+    </span>
+    
+      <span>
+        | <a href="/categories/Configuration/"><i class="fa fa-bookmark"></i>Configuration</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    IDEA插件汇总
+  </h1>
+  
+  <article class="passage-article">
+    <h2 id="推荐的插件"><a href="#推荐的插件" class="headerlink" title="推荐的插件"></a>推荐的插件</h2><h3 id="Maven-Helper"><a href="#Maven-Helper" class="headerlink" title="Maven Helper"></a>Maven Helper</h3><p>我一般用这款插件来查看 maven 的依赖树。在不使用此插件的情况下，要想查看 maven 的<br>依赖树就要使用 Maven 命令<code>maven dependency:tree</code>来查看依赖。，但是这样还是需要我<br>执行命令，并且当项目比较复杂的时候，这个过程是比较漫长的。maven helper 就能很好<br>的解决这个问题。</p>
+<p>一旦安装了<a href="https://plugins.jetbrains.com/plugin/7179?pr=idea" target="_blank" rel="noopener">Maven Helper</a>插件<br>，只要打开 pom 文件，就可以打开该 pom 文件的 Dependency Analyzer 视图（在文件打<br>开之后，文件下面会多出这样一个 tab），进入 Dependency Analyzer 视图之后有三个查<br>看选项，分别是 Conflicts( 冲突 )、All Dependencies as List( 列表形式查看所有依赖<br>)、All Dependencies as Tree( 树结构查看所有依赖 )。并且这个页面还支持搜索。很方<br>便！并且使用该插件还能快速的执行 maven 命令。</p>
+<p>来一张 maven helper 提供的图片感受一下： <img src="https://i.imgur.com/vyHGRRD.png" alt><br><img src="https://i.imgur.com/zAXJ8Ht.png" alt></p>
+<h3 id="FindBugs-IDEA"><a href="#FindBugs-IDEA" class="headerlink" title="FindBugs-IDEA"></a>FindBugs-IDEA</h3><p><a href="https://plugins.jetbrains.com/plugin/3847?pr=idea" target="_blank" rel="noopener">FindBugs</a>很多人都并不陌生<br>，Eclipse 中有插件可以帮助查找代码中隐藏的 bug，IDEA 中也有这款插件。</p>
+<p>使用方法很简单，就是可以对多种级别的内容进行 finbugs</p>
+<p><img src="https://i.imgur.com/Rhp6pAD.png" alt> 分析完之后会有一个视图进行提示，详细的说明<br>是哪种问题。 <img src="https://i.imgur.com/VzWHU7e.png" alt> 按照提示解决完问题之后再执行<br>findbug 查看情况即可。</p>
+<hr>
+<h3 id="CheckStyle-IDEA"><a href="#CheckStyle-IDEA" class="headerlink" title="CheckStyle-IDEA"></a>CheckStyle-IDEA</h3><p>通过检查对代码编码格式，命名约定，Javadoc ，类设计等方面进行代码规范和风格的检查<br>，从而有效约束开发人员更好地遵循代码编写规范。软件安装成功之后，首先要设置规则。<br>可以通过</p>
+<blockquote>
+<p>Preferences—&gt;Other Settings —&gt;CheckStyles</p>
+</blockquote>
+<p>进行设置，可以直接将文件添加进来，然后就可以对具体的文件进行检查了。<br><img src="https://i.imgur.com/ImMzjQF.png" alt> 同样，该插件也有个单独的视图，该视图可以展<br>示检查结果。 <img src="https://i.imgur.com/tCVcR2Y.png" alt></p>
+<hr>
+<h3 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h3><p>Java 开发中，经常有把 json 格式的内容转成 Object 的需求，GsonFormat 这款插件可以<br>实现该功能。</p>
+<p><img src="https://i.imgur.com/Sb4Q499.gif" alt></p>
+<hr>
+<h3 id="AceJump"><a href="#AceJump" class="headerlink" title="AceJump"></a>AceJump</h3><p>AceJump 其实是一款能够代替鼠标的软件，只要安装了这款插件，可以在代码中跳转到任意<br>位置。</p>
+<p>操作 : 第 1 步：Ctrl+; 快捷键，激活插件。此时，IDE 代码编辑区会出现一个蓝色光标<br>，然后输入你要跳转的标签。</p>
+<p>第 2 步，这是，IDE 全屏所有你刚才输入的标签都会被高亮显示，并且在这个高亮的标签<br>前面会出现相应的键盘字母，你按照相应提示的字母去敲击键盘就可以自动跳转了。<br><img src="https://i.imgur.com/BhDmV1J.png" alt></p>
+<hr>
+<h3 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h3><p>安装这个插件之后，打开 .md 文件就可以通过一个支持 md 的视图查看和编辑内容。一般<br>用于写 README.md 文件。但是这个插件我不太用，因为他对 md 语法支持的并不是很好</p>
+<hr>
+<h3 id="Key-promoter"><a href="#Key-promoter" class="headerlink" title="Key promoter"></a>Key promoter</h3><p>很多开发都是从 Eclipse 转到 Idea 的。用习惯了 Eclipse 的快捷键之后在使用 IDEA 真<br>的非常不习惯。Key promoter 这款插件适合新手使用。当你点击鼠标一个功能的时候，可<br>以提示你这个功能快捷键是什么。</p>
+<h3 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h3><p>这个插件的作用是在 Intellij 中模拟 Vim 的操作方式。咋看上去，似乎是一个只有 Vim<br>的狂热玩家才会选用的插件。但事实上这个插件提供了一个非常实用功能，让它成为了我们<br>这种普通开发者居家旅行的必备选择。这个功能是，IdeaVim 允许设置一个快捷键来激活或<br>关闭 IdeaVim 模拟器，而且在激活或关闭时，会自动切换 Keymap。也就是说，你在输入大<br>段代码时，可以使用自己惯用的 Keymap。在阅读代码，小范围修改，或者进行一些重复性<br>修改时，可以切换到 Vim 模式。甚至你可以把 “ 关闭 IdeaVim” 看做 “ 增强的 Vim 插入<br>模式 ”。有了 Vim 普通模式下的各种功能，就可以省去记忆大量快捷键的苦恼，而且本来<br>熟悉 vim 使用，是程序员迟早都要遇到的问题。</p>
+<ol>
+<li><p>在普通模式下输入 :s/ 正则表达式 / 替换文本 /g 可以在当前行范围内查找替换。（<br>在正常的 IDEA 中需要选中当前行后在当前选区查找替换）</p>
+</li>
+<li><p>在普通模式下输入 小数点 将在当前光标位置重复上一次修改操作。例如你在某一行进<br>行了上述的查找替换，如果立即需要在另一行做同样操作，把光标移动到该行按小数点<br>即可。</p>
+</li>
+<li><p>yyp 复制当前行。 yy10p 复制当前行 10 次</p>
+</li>
+<li><p>u 撤销修改 / Ctrl+R 重做修改</p>
+</li>
+<li><p>q 加任何单个数字或字母，录制后续操作，记录到名为该数字或字母的宏（Macro ）中<br>。在录制状态下按 q 结束录制。@ 加某个已录制的宏名（单个数字或字母），回放宏。<br>录制的宏只要不被覆盖，会自动保存。重启 IDEA 后仍然有效。（在正常的 IDEA 中使<br>用宏需要进行菜单操作，不甚方便）</p>
+</li>
+<li><p>daw 删除一个单词，d$ 删除至行尾，d0 删除至行首（包括缩进）， d^ 删除至行首（<br>保留缩进）， dd 删除当前行。删除后按 p 可以复制删除内容。</p>
+</li>
+<li><p>J 直接把下一行连接到本行末尾，去除缩进</p>
+</li>
+<li><p>% 跳到匹配的括号</p>
+</li>
+<li><p>10ib<esc> 插入 10 个 b。（数字）i/a/o/O （字符串）<esc> 可插入 n 个重复字符串<br>，i 在光标前插入，a 在光标后插入，o 在下一行插入，O 在上一行插入。注意在 IDEA<br>默认情况下输入 “i 字符 ” 后会弹出自动补全菜单，需要多按一下 ESC 取消掉补全菜<br>单。</esc></esc></p>
+</li>
+<li><p>在一个数字上按 ctrl+a，可将该数字加 1. 按 ctrl+x 可将数字减 1. 按（数字<br>）ctrl+a ，可将光标数字加上输入的数字。</p>
+</li>
+<li><p>~ - 将光标下的字母改变大小写。 g~aw - 改变当前单词的大小写。gU&lt; 空格 &gt; - 当<br>前字母改大写。gu&lt; 空格 &gt; - 当前字母改小写。 gUaw - 当前单词改大写。 guaw -<br>当前单词改小写。 在字符串前面的引号上 gUf” - 字符串改大写。</p>
+</li>
+<li><p>行号 G - 直接移动到某行。（使用 IDEA 的 Ctrl+G 会弹出对话框，且移动到的那行<br>会自动居中，颇为眼花）</p>
+</li>
+<li><p>H - 光标移动到屏幕第一行。 L - 光标移动到屏幕最后一行。 M - 光标移动到屏幕中<br>间。 zz - 光标所在行居中</p>
+</li>
+</ol>
+<h3 id="CodeGlance"><a href="#CodeGlance" class="headerlink" title="CodeGlance"></a>CodeGlance</h3><p>类似 SublimeText 的 Mini Map 插件</p>
+<p><img src="https://i.imgur.com/Qqzg7Zo.png" alt></p>
+<h3 id="Background-Image-Plus"><a href="#Background-Image-Plus" class="headerlink" title="Background Image Plus"></a>Background Image Plus</h3><p>这又是一款装备 B 插件了，想想别人看到你的 IDE 背景是怎样的，安装之后，在打开<br>View 选项，就可以看到 Set Background Image 选项了<br><img src="https://i.imgur.com/iwRTDD6.png" alt></p>
+<h3 id="Shifter"><a href="#Shifter" class="headerlink" title="Shifter"></a>Shifter</h3><p>检测光标所在选中、行或关键字的类型，然后用键盘快捷键上的 “up” 或 “down” 键移动它<br>。如果在一行中只有一个可移动的单词，那么它不需要碰触光标，我们就可以移动它。支持<br>小写 / 大写或小写所移动单词中的第一个大写的字符。</p>
+<p>默认快捷键</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + Alt+逗号：下移</span><br><span class="line">Ctrl + Shift + Alt +句号：上移</span><br><span class="line">Ctrl + Shift + Alt + K：上移更多</span><br><span class="line">Ctrl + Shift + Alt + J：下移更多</span><br></pre></td></tr></table></figure>
+<p>移动更多：多次重复选择所选中的值。重复次数可在插件配置中进行配置（默认为 10）</p>
+<h3 id="bashsupport"><a href="#bashsupport" class="headerlink" title="bashsupport"></a>bashsupport</h3><p>linux支持…<br>对于IntelliJ的Bash语言支持。它支持语法高亮，更名重构，文档查询，检查，快速修复。BashSupport可以直接在IntelliJ中运行脚本。你可以为bash脚本创建一个新的运行配置。在这里你可以设置哪个解释器是用来运行它。每当执行脚本时，就会记录输出。如果Bash打印出语法错误，那么点击错误的行就可以跳到错误的位置。</p>
+<hr>
+<h3 id="Cmd-Support"><a href="#Cmd-Support" class="headerlink" title="Cmd Support"></a>Cmd Support</h3><p>我们已经可以用命令行来调度脚本了，但是每次执行的时候不是要到对应目录下去双击文件就是要在命令行中敲出对应的脚本执行语句这里我们又一个更方便的工具执行脚本,cmd support,他允许直接运行cmd或者bat文件,与windows的bat完全一样.右键run cmd script</p>
+<p><img src="https://i.imgur.com/M2Pi3sJ.png" alt></p>
+<hr>
+<h3 id="String-Manipulation"><a href="#String-Manipulation" class="headerlink" title="String Manipulation"></a>String Manipulation</h3><p>提供强大的文本转换操作：</p>
+<p>切换样式（camelCase, hyphen-lowercase, HYPHEN-UPPERCASE, snakecase, SCREAMINGSNAKE_CASE, dot.case, words lowercase, Words Capitalized, PascalCase）</p>
+<ul>
+<li>转换为SCREAMINGSNAKECASE (或转换为camelCase)</li>
+<li>转换为 snake_case (或转换为camelCase)</li>
+<li>转换为dot.case (或转换为camelCase)</li>
+<li>转换为hyphen-case (或转换为camelCase)</li>
+<li>转换为hyphen-case (或转换为snake_case)</li>
+<li>转换为camelCase (或转换为Words)</li>
+<li>转换为camelCase (或转换为lowercase words)</li>
+<li>转换为PascalCase (或转换为camelCase)</li>
+<li>选定文本大写</li>
+<li>样式反转</li>
+</ul>
+<p>Un/Escape:</p>
+<ul>
+<li>Un/Escape 选中的 java 文本</li>
+<li>Un/Escape 选中的 javascript 文本</li>
+<li>Un/Escape 选中的 HTML 文本</li>
+<li>Un/Escape 选中的 XML 文本</li>
+<li>Un/Escape 选中的 SQL 文本</li>
+<li>Un/Escape 选中的 PHP 文本</li>
+<li>将 diacritics(accents) 转换为 ASCII</li>
+<li>将非ASCII 转换为转义的Unicode</li>
+<li><p>将转义的Unicode转换为字符串<br>Encode/Decode:</p>
+</li>
+<li><p>Encode 选中的文本为 MD5 Hex16</p>
+</li>
+<li>De/Encode 选中的文本为 URL</li>
+<li>De/Encode 选中的文本为 Base64</li>
+<li><p>递增/递减:</p>
+</li>
+<li><p>递增/递减所有找到的数字</p>
+</li>
+<li>复制行并且递增/递减所有找到的数字</li>
+<li>创建序列：保持第一个数字，递增替换所有其他数字</li>
+<li>递增重复的数字</li>
+</ul>
+<p>按自然顺序排序:</p>
+<ul>
+<li>按行倒序</li>
+<li>按行随机排序</li>
+<li>区分大小写A-z排序</li>
+<li>区分大小写z-A排序</li>
+<li>不区分大小写A-Z排序</li>
+<li>不区分大小写Z-A排序</li>
+<li>按行长度排序</li>
+<li>通过子选择行排序：每行仅处理一个选择/插入符号</li>
+</ul>
+<p>对齐：</p>
+<ul>
+<li>通过选定的分隔将选定的文本格式化为列/表格</li>
+<li>将文本对齐为左/中/右</li>
+</ul>
+<p>过滤/删除/移除：</p>
+<ul>
+<li>grep选定的文本，所有行不匹配输入文字将被删除。 （不能在列模式下工作）</li>
+<li>移除选定的文本</li>
+<li>移除选定文本中的所有空格</li>
+<li>删除选定文本中的所有空格</li>
+<li>删除重复的行</li>
+<li>只保留重复的行</li>
+<li>删除空行</li>
+<li>删除所有换行符</li>
+</ul>
+<p>其他:</p>
+<ul>
+<li>交换字符/选择/线/标记</li>
+<li>切换文件路径分隔符：Windows &lt; - &gt; UNIX</li>
+</ul>
+<hr>
+<h3 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h3><p>允许你定义一系列将通过控制台输出或文件测试的正则表达式。匹配代码行的每个表达式将会影响整行的样式，或播放声音。例如，错误消息可以被设置在一个红色的背景中显示。</p>
+<p>附加功能：ANSI着色</p>
+<p>File Tailing：</p>
+<ul>
+<li>Main menu | Tools | Open File in Console</li>
+<li>Main Menu | Help | Tail (IntelliJ) Log in Console</li>
+<li>在主工具条中拖放“Tail File”面板</li>
+<li>HTTP和Windows右键菜单集成<br><img src="https://i.imgur.com/0Jf004B.png" alt></li>
+</ul>
+<hr>
+<h3 id="ignore"><a href="#ignore" class="headerlink" title=".ignore"></a>.ignore</h3><p>版本控制时标记一些不需要上传到git上的文件把不需要的文件添加到.ignorefiles中,文件就不会上传到git,<br><img src="https://i.imgur.com/8GjsngS.png" alt><br>比如本次的,<code>.idea</code>文件夹是我的工程配置文件包括了我的jdk位置,jar包位置等信息,别人打开就是出现错误,还是不要上传到git上好,<code>target</code>是编译后的class文件,也不需要上传,<code>courses.iml</code>是 intellij idea的工程配置文件,里面是当前projec的一些配置信息 </p>
+<hr>
+<h3 id="markdown-navigator"><a href="#markdown-navigator" class="headerlink" title="markdown navigator"></a>markdown navigator</h3><p>书写 Markdown 文章<br>比自带的markdown要好一点<br>如图:<br><img src="https://i.imgur.com/06vnFkn.png" alt></p>
+<hr>
+<h3 id="Properties-to-YAML-Converter"><a href="#Properties-to-YAML-Converter" class="headerlink" title="Properties to YAML Converter"></a>Properties to YAML Converter</h3><p>把 Properties 的配置格式改为 YAML 格式</p>
+<hr>
+<h3 id="statistic"><a href="#statistic" class="headerlink" title="statistic"></a>statistic</h3><p>使用statistic插件可以统计代码总行数<br>在idea左下角点击statistic图标<br><img src="https://i.imgur.com/NGlknOm.png" alt><br>显示各个文件的行数,代码数</p>
+<hr>
+<h3 id="lombok"><a href="#lombok" class="headerlink" title="lombok"></a>lombok</h3><ol>
+<li>安装lombok插件</li>
+<li>在自己的项目里添加lombok的编译支持(此处本人所操作的项目为maven项目),在pom文件里面添加如下indenpence</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.16.6&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p> 3 . 然后就可以尽情在自己项目里面编写简略风格的Java代码咯</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lombok;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">import</span> lombok.Data;</span><br><span class="line">    <span class="keyword">import</span> lombok.EqualsAndHashCode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Created by Hinsteny on 2016/1/3.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="meta">@EqualsAndHashCode</span>(callSuper = <span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line">        <span class="keyword">int</span> sex;</span><br><span class="line">        Integer age;</span><br><span class="line">        String address;</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; books;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用Student类对象</span></span><br><span class="line">    Student student = <span class="keyword">new</span> Student();</span><br><span class="line">    student.setName(name);</span><br><span class="line">    student.setAge(age);</span><br><span class="line">    student.setAddress(address);</span><br><span class="line">    student.setBooks(Arrays.asList(books));</span><br></pre></td></tr></table></figure>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#推荐的插件"><span class="toc-text">推荐的插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-Helper"><span class="toc-text">Maven Helper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FindBugs-IDEA"><span class="toc-text">FindBugs-IDEA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CheckStyle-IDEA"><span class="toc-text">CheckStyle-IDEA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GsonFormat"><span class="toc-text">GsonFormat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AceJump"><span class="toc-text">AceJump</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown"><span class="toc-text">markdown</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-promoter"><span class="toc-text">Key promoter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ideaVim"><span class="toc-text">ideaVim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeGlance"><span class="toc-text">CodeGlance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Background-Image-Plus"><span class="toc-text">Background Image Plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shifter"><span class="toc-text">Shifter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bashsupport"><span class="toc-text">bashsupport</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cmd-Support"><span class="toc-text">Cmd Support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-Manipulation"><span class="toc-text">String Manipulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grep-Console"><span class="toc-text">Grep Console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ignore"><span class="toc-text">.ignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown-navigator"><span class="toc-text">markdown navigator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties-to-YAML-Converter"><span class="toc-text">Properties to YAML Converter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#statistic"><span class="toc-text">statistic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok"><span class="toc-text">lombok</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170130/idea-plugin-summary.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Windows/"><i class="fa fa-tags"></i>Windows</a>
+     
+      <a href="/tags/Config/"><i class="fa fa-tags"></i>Config</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170508/large-frontend-toolset.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170130/computer-tips.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

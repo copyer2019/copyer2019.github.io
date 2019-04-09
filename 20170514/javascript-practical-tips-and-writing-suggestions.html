@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>JavaScript 实用技巧和写法建议 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="编程, 前端,前端,js,">
+  
+
+  
+  <meta name="description" content="董沅鑫的小站">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-05-14
+    </span>
+    
+      <span>
+        | <a href="/categories/编程-前端/"><i class="fa fa-bookmark"></i>编程, 前端</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    JavaScript 实用技巧和写法建议
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>标签： 干货</p>
+<h1 id="JavaScript-实用技巧和写法建议"><a href="#JavaScript-实用技巧和写法建议" class="headerlink" title="JavaScript 实用技巧和写法建议"></a>JavaScript 实用技巧和写法建议</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>从大学到现在，接触前端已经有几年了，感想方面，就是对于程序员而言，想要提高自己的技术水平和编写易于阅读和维护的代码，我觉得不能每天都是平庸的写代码，更要去推敲，去摸索和优化代码，总结当中的技巧，积极听取别人的建议，这样自己的技术水平会提高的更快。那么今天，我在这里就分享一下关于javascript方面的写作的实用技巧和建议，这些技巧和建议是我平常在开发项目上会用到的，希望能让大家学到知识，更希望能起到一个交流意见的作用，也就是说大家有什么好的技巧或者建议，欢迎分享，或者觉得我的想法存在什么问题，欢迎指出!</p>
+<h2 id="2-更短的数组去重写法"><a href="#2-更短的数组去重写法" class="headerlink" title="2.更短的数组去重写法"></a>2.更短的数组去重写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[...new Set([2,&quot;12&quot;,2,12,1,2,1,6,12,13,6])]</span><br><span class="line">//[2, &quot;12&quot;, 12, 1, 6, 13]</span><br><span class="line">//es6的新特性</span><br></pre></td></tr></table></figure>
+<h2 id="3-对象深浅拷贝"><a href="#3-对象深浅拷贝" class="headerlink" title="3.对象深浅拷贝"></a>3.对象深浅拷贝</h2><p>关于对象的深浅拷贝，我个人见解就是有一下几点：</p>
+<p>1.深拷贝和浅拷贝只针对像Object, Array这样的引用类型数据。</p>
+<p>2.浅拷贝是对对象引用地址进行拷贝，并没有开辟新的栈，也就是拷贝后的结果是两个对象指向同一个引用地址，修改其中一个对象的属性，则另一个对象的属性也会改变。</p>
+<p>3.深拷贝则是开启一个新的栈，两个对象对应两个不同的引用地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myInfo=&#123;name:&apos;守候&apos;,sex:&apos;男&apos;&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444b153bd43?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newInfo=myInfo;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444e6487915?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newInfo.sex=&apos;女&apos;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444e2d6a43b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(myInfo)   //&#123;name: &quot;守候&quot;, sex: &quot;女&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="假-深拷贝"><a href="#假-深拷贝" class="headerlink" title="假-深拷贝"></a>假-深拷贝</h3><p>假-深拷贝这个是自己随性命名的，大家看看就好，别当真！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myInfo=&#123;name:&apos;守候&apos;,sex:&apos;男&apos;&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444b153bd43?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newInfo=Object.assign(&#123;&#125;,myInfo)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444ea8bca2c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newInfo.sex=&apos;女&apos;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444a56dc84e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(myInfo)   //&#123;name: &quot;守候&quot;, sex: &quot;男&quot;&#125;</span><br><span class="line">console.log(newInfo)   //&#123;name: &quot;守候&quot;, sex: &quot;女&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="真-深拷贝"><a href="#真-深拷贝" class="headerlink" title="真-深拷贝"></a>真-深拷贝</h3><p>真-深拷贝这个是自己随性命名的，大家看看就好，别当真！</p>
+<p>看着深浅拷贝，区别写法很简单，但是那个上面的深拷贝写法是有问题的。看下面案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr=[&#123;a:1,b:2&#125;,&#123;a:3,b:4&#125;]</span><br><span class="line">var newArr=Object.assign([],arr)</span><br><span class="line">//截断数组</span><br><span class="line">newArr.length=1</span><br><span class="line">console.log(newArr)//[&#123;a:1,b:2&#125;]</span><br><span class="line">console.log(arr)//[&#123;a:1,b:2&#125;,&#123;a:3,b:4&#125;]</span><br><span class="line">//操作newArr，这里看着对arr没影响，实际上已经挖了一个坑，下面就跳进去</span><br><span class="line">newArr[0].a=123</span><br><span class="line">//修改newArr[0]这个对象，也是影响了arr[0]这个对象</span><br><span class="line">console.log(arr[0])//&#123;a: 123, b: 2&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么会这样呢，因为Object.assign并不是深拷贝，是披着深拷贝外衣的浅拷贝。最多也是Object.assign会课拷贝第一层的值，对于第一层的值都是深拷贝，而到第二层的时候就是 复制引用。类似的情况还有，slice方法和concat方法等。<br>要解决这个问题，就得自己封装方法！如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//利用递归来实现深拷贝，如果对象属性的值是引用类型（Array,Object），那么对该属性进行深拷贝，直到遍历到属性的值是基本类型为止。  </span><br><span class="line">function deepClone(obj)&#123;    </span><br><span class="line">  if(!obj&amp;&amp; typeof obj!== &apos;object&apos;)&#123;      </span><br><span class="line">    return;    </span><br><span class="line">  &#125;    </span><br><span class="line">  var newObj= obj.constructor === Array ? [] : &#123;&#125;;    </span><br><span class="line">  for(var key in obj)&#123;       </span><br><span class="line">    if(obj[key])&#123;          </span><br><span class="line">      if(obj[key] &amp;&amp; typeof obj[key] === &apos;object&apos;)&#123;  </span><br><span class="line">        newObj[key] = obj[key].constructor === Array ? [] : &#123;&#125;; </span><br><span class="line">        //递归</span><br><span class="line">        newObj[key] = deepClone(obj[key]);          </span><br><span class="line">      &#125;else&#123;            </span><br><span class="line">        newObj[key] = obj[key];         </span><br><span class="line">      &#125;       </span><br><span class="line">    &#125;    </span><br><span class="line">  &#125;    </span><br><span class="line">  return newObj; </span><br><span class="line">&#125;</span><br><span class="line">var arr=[&#123;a:1,b:2&#125;,&#123;a:3,b:4&#125;]</span><br><span class="line">var newArr=deepClone(arr)</span><br><span class="line">console.log(arr[0])//&#123;a:1,b:2&#125;</span><br><span class="line">newArr[0].a=123</span><br><span class="line">console.log(arr[0])//&#123;a:1,b:2&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个方法就是简单粗暴法，我现在在用的一个方法！原理很简单，就是先把对象转成字符串，再把字符串转成对象！也能实现同样效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newArr2=JSON.parse(JSON.stringify(arr));</span><br><span class="line">console.log(arr[0])//&#123;a:1,b:2&#125;</span><br><span class="line">newArr2[0].a=123</span><br><span class="line">console.log(arr[0])//&#123;a:1,b:2&#125;</span><br></pre></td></tr></table></figure>
+<p>上面所说的浅拷贝，真假深拷贝（自己随性命名的），这几种情况，在开发上都有可能要用到，至于要使用哪一种方式，视情况而定！</p>
+<h2 id="4-使用事件委托"><a href="#4-使用事件委托" class="headerlink" title="4.使用事件委托"></a>4.使用事件委托</h2><p>一个简单的需求，比如想给ul下面的li加上点击事件，点击哪个li，就显示那个li的innerHTML。这个貌似很简单！代码如下！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;ul id=&quot;ul-test&quot;&gt;</span><br><span class="line">            &lt;li&gt;0&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;6&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;7&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;8&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;9&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var oUl=document.getElementById(&quot;ul-test&quot;);</span><br><span class="line">        var oLi=oUl.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">        for(var i=0,len=oLi.length;i&lt;len;i++)&#123;</span><br><span class="line">            oLi[i].addEventListener(&quot;click&quot;,function()&#123;</span><br><span class="line">                alert(this.innerHTML)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>很简单，这样就实现了，实际上这里有坑，也待优化！<br>1.for循环，循环的是li，10个li就循环10次，绑定10次事件，100个就循环了100次，绑定100次事件！<br>2.如果li不是本来就在页面上的，是未来元素，是页面加载了，再通过js动态加载进来了，上面的写法是无效的，点击li是没有反应的！<br>所以就者需要用事件委托（即使不考虑上面的第二种情况，也是建议使用事件委托）！代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;ul id=&quot;ul-test&quot;&gt;</span><br><span class="line">            &lt;li&gt;0&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;6&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;7&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;8&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;9&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var oUl=document.getElementById(&quot;ul-test&quot;);</span><br><span class="line">        oUl.addEventListener(&quot;click&quot;,function(ev)&#123;</span><br><span class="line">            var ev=ev||window.event;</span><br><span class="line">            var target=ev.target||ev.srcElement;</span><br><span class="line">            //如果点击的最底层是li元素</span><br><span class="line">            if(target.tagName.toLowerCase()===&apos;li&apos;)&#123;</span><br><span class="line">                alert(target.innerHTML)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>这样写，即使是动态添加进来的li点击也有反应，还有一个就是ul只有一个，事件绑定在ul上，无论li多少个，都是添加一次事件！但是也是可能会有问题，如果li下面还有子元素，那么点击的时候，target可能不是li，而是鼠标点击那个位置的最底层元素！如下图，如果鼠标点击白色区域，那个target就是body元素,鼠标点击绿色区域target就是div元素，鼠标点击蓝色区域target就是ul，点击橙色就是li。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444ed94451a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="5-使用对象作为函数参数"><a href="#5-使用对象作为函数参数" class="headerlink" title="5.使用对象作为函数参数"></a>5.使用对象作为函数参数</h2><p>大家试想下这样一个函数–函数接受几个参数，但是这几个参数都不是必填的，函数该怎么处理？是不是下面这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function personInfo(name,phone,card)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">//以上函数，可以任意传参数。比如我想传card等于1472586326。这下是不是这样写</span><br><span class="line">personInfo(&apos;&apos;,&apos;&apos;,&apos;1472586326&apos;)</span><br></pre></td></tr></table></figure>
+<p>有没有觉得上面写法奇怪，不太优雅？下面这里看着舒服一点！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function personInfo(opt)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">personInfo(&#123;card:&apos;1472586326&apos;&#125;)</span><br></pre></td></tr></table></figure>
+<p>再想一下，如果一个函数，参数很多，怎么处理？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function test(arg1,arg2,arg3,arg4,arg5,arg6,arg7)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>密集恐惧症复发没有复发？下面这样看着会舒服一点！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function personInfo(opt)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后再想一下，如果需求改了，操作函数也要改！函数也要增加一个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//原来函数</span><br><span class="line">function personInfo(name,phone,card)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">//修改后</span><br><span class="line">function personInfo(name,age,phone,card)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就是参数修改一次，函数的参数就要修改一次！如果是用对象，就不会出现这样问题！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//修改前后都是这样，变得是函数的操作内容和调用时候的传参！</span><br><span class="line">function personInfo(opt)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看了上面的几个栗子，总结来说，就是当函数的参数不固定的时候，参数多(三个或者三个以上)的时候，建议用一个对象记录参数，这样会比较方便，也为以后如果参数要改留了条后路！</p>
+<h2 id="6-使用push和apply合并数组"><a href="#6-使用push和apply合并数组" class="headerlink" title="6.使用push和apply合并数组"></a>6.使用push和apply合并数组</h2><p>合并数组这个已经是老生常谈的话题了，方法也是多种多样！</p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];</span><br><span class="line">arr1=arr1.concat(arr2)</span><br><span class="line">console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br></pre></td></tr></table></figure>
+<p>concat会一个全新的数组，表示arr1和arr2两个数组的组合，并让arr1和arr2不变。简单吧？<br>但如果arr1和arr2的长度都很长，那就产生了一个很长很长的数组，内存又被占用了那么多。但是数组长度没限制！</p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];</span><br><span class="line">for(var i=0,len=arr2.length;i&lt;len;i++)&#123;</span><br><span class="line">    arr1.push(arr2[i])</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br></pre></td></tr></table></figure>
+<p>这里是往arr1循环添加arr2的元素，但是有一个情况，arr1的长度远小于arr2的长度，是不是循环arr1性能更好，循环次数更少。处理这个很简单，但是万一不知道arr1和arr2到底哪个长度更少呢？而且，for循环不够优雅！（当然，这个可以用迭代方法来替代）</p>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];</span><br><span class="line">arr1 = arr2.reduce( function(coll,item)&#123;</span><br><span class="line">     coll.push( item );</span><br><span class="line">     return coll;</span><br><span class="line"> &#125;, arr1 );</span><br><span class="line"> console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br></pre></td></tr></table></figure>
+<p>逼格高了一点，而且用ES6的箭头函数还可以减少一些代码量，但它仍然需要一个函数，每个元素都需要调用一次。</p>
+<h3 id="push-apply"><a href="#push-apply" class="headerlink" title="push.apply"></a>push.apply</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];</span><br><span class="line">arr1.push.apply(arr1,arr2);</span><br><span class="line">console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br></pre></td></tr></table></figure>
+<p>逼格看着高，代码少，也不会产生新的数组，也不难理解，就是调用<code>arr1.push</code>这个函数实例的<code>apply</code>方法，同时把<code>arr2</code>当作参数传入，这样<code>arr1.push</code>这个方法就会遍历<code>arr2</code>数组的所有元素，达到合并的效果。相当于<code>arr1.push.apply(arr1,[6,7,8,9,10]);</code>，最后相当于<code>arr1.push(6,7,8,9,10)</code>。遗憾的就是，这个方法对数组长度有限制，网上说法是不同浏览器，不同的长度限制，一般不超过10万！</p>
+<p>之前是建议用push.apply，但是现在保留意见，就是大家觉得哪个方式用哪个方式！这个没有一定的对错！</p>
+<h2 id="7-toFixed保留整数"><a href="#7-toFixed保留整数" class="headerlink" title="7.toFixed保留整数"></a>7.toFixed保留整数</h2><p>在开发上，经常会遇到最多保留多少位小数或者类似的问题，针对这个，使用toFixed可以很简单的解决问题，但是如果数据是要和后台交互的，而且后台存储的数据一般是保存数字类型，而使用toFixed后生成的是一个字符串，这下，就需要把toFixed生成的是一个字符串转成数字类型，转发很多。今天我说一个最简单–+。代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335.toFixed(2)</span><br><span class="line">console.log(a)//&apos;123.37&apos;</span><br><span class="line">a=+a</span><br><span class="line">console.log(a)//123.37</span><br></pre></td></tr></table></figure>
+<p>PS：a=a|0和~~a也可以实现，但是生成的是一个整数，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335.toFixed(2)</span><br><span class="line">console.log(a)//&apos;123.37&apos;</span><br><span class="line">a=a|0  </span><br><span class="line">console.log(a)//123 </span><br><span class="line">//---------------------------------分割线</span><br><span class="line">var a=123.36896335.toFixed(2)</span><br><span class="line">console.log(a)//&apos;123.37&apos;</span><br><span class="line">a=~~a  </span><br><span class="line">console.log(a)//123</span><br></pre></td></tr></table></figure>
+<h2 id="8-其它类型数据转布尔数据"><a href="#8-其它类型数据转布尔数据" class="headerlink" title="8.其它类型数据转布尔数据"></a>8.其它类型数据转布尔数据</h2><p>下面的转换，大家一看就明白了，不多说。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">console.log(!!&apos;123&apos;)</span><br><span class="line">//true</span><br><span class="line">!!12</span><br><span class="line">//true</span><br><span class="line">!!-1</span><br><span class="line">//true</span><br><span class="line">!![]</span><br><span class="line">//true</span><br><span class="line">!!&apos;&apos;</span><br><span class="line">//false</span><br><span class="line">!!null</span><br><span class="line">//false</span><br></pre></td></tr></table></figure>
+<h2 id="9-缓存变量"><a href="#9-缓存变量" class="headerlink" title="9.缓存变量"></a>9.缓存变量</h2><h3 id="for循环缓存length"><a href="#for循环缓存length" class="headerlink" title="for循环缓存length"></a>for循环缓存length</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6]</span><br><span class="line">for(var i=0,i&lt;arr.length;i++)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">//------------------------分割线</span><br><span class="line">var arr=[1,2,3,4,5,6]</span><br><span class="line">for(var i=0,len=arr.length;i&lt;len;i++)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一段就是每一次循环的时候，都要查询一次arr.length。第二段代码就是缓存了arr.length，每次对比len就好，理论上是第二段代码的写法比较好，性能比较高！但是随着浏览器的发展，这个细节的性能上的影响貌似远远小于预期，现在还是建议缓存！我写了下面的测试用例(谷歌浏览器测试)！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var arr100=[], arr10000=[];</span><br><span class="line">for(var i=0;i&lt;100;i++)&#123;</span><br><span class="line">    arr100.push(i)</span><br><span class="line">&#125;</span><br><span class="line">for(var i=0;i&lt;10000;i++)&#123;</span><br><span class="line">    arr10000.push(i)</span><br><span class="line">&#125;</span><br><span class="line">//缓存情况</span><br><span class="line">function testCache(arr)&#123;</span><br><span class="line">    console.time();</span><br><span class="line">    for(var i=0,len=arr.length;i&lt;len;i++)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    console.timeEnd()</span><br><span class="line">&#125;</span><br><span class="line">//不缓存情况</span><br><span class="line">function testNoCache(arr)&#123;</span><br><span class="line">    console.time();</span><br><span class="line">    for(var i=0,len=arr.length;i&lt;len;i++)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    console.timeEnd()</span><br><span class="line">&#125;</span><br><span class="line">testCache(arr100)//default: 0.007ms</span><br><span class="line">testCache(arr10000)//default: 0.035ms</span><br><span class="line">testNoCache(arr100)//default: 0.012ms</span><br><span class="line">testNoCache(arr10000)//default: 0.109ms</span><br><span class="line">//这只是一个最简单的数组，如果遍历的是一个nodeList（元素列表），效果可能会更明显。</span><br></pre></td></tr></table></figure>
+<h3 id="元素事件"><a href="#元素事件" class="headerlink" title="元素事件"></a>元素事件</h3><p>这里我用jquery来讲解，比较容易理解，原生js也是这个道理！如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.div1&apos;).click(function()&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;)</span><br><span class="line">//--------------------------分割线   </span><br><span class="line">var $div1=$(&apos;.div1&apos;);</span><br><span class="line">$div1.click(function()&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上面的代码，改变的也是缓存了$(‘.div1’)，但是这里就建议是第二种写法了，因为第一种点击一次就要查询一次.div1，Dom的操作还是能减少就减少！</p>
+<h2 id="10-使用innerHTML添加元素"><a href="#10-使用innerHTML添加元素" class="headerlink" title="10.使用innerHTML添加元素"></a>10.使用innerHTML添加元素</h2><p>比如有一个需求，往<code>ul</code>里面添加10个<code>li</code>，两种方法，如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;ul id=&quot;ul-test&quot;&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var oUl=document.getElementById(&quot;ul-test&quot;);</span><br><span class="line">        //createElement方式</span><br><span class="line">        console.time();</span><br><span class="line">        for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">            var oLi=document.createElement(&apos;li&apos;);</span><br><span class="line">            oLi.innerHTML=i;</span><br><span class="line">            oUl.appendChild(oLi);</span><br><span class="line">        &#125;</span><br><span class="line">        console.timeEnd();</span><br><span class="line">        //innerHTML方式</span><br><span class="line">        console.time();</span><br><span class="line">        var _html=&apos;&apos;;</span><br><span class="line">        for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">            _html+=&apos;&lt;li&gt;&apos;+i+&apos;&lt;/li&gt;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">        oUl.innerHTML=_html;</span><br><span class="line">        console.timeEnd();</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>大家把代码用浏览器打开，发现基本是第二种方式更快，第8点也说了，DOM操作能少就少！第一种要操作10次DOM，第二种只需要操作1次DOM。还有一个就是，这个只是很简单的li,如果是下面的列表呢？用第一种方式，得createElement多少次，innerHTML多少次，appendChild多少次？代码多，各个节点的逻辑和嵌套关系也乱！用第二种方式就是一个拼接字符串的操作，比第一种方式好多了，如果用es6的模板字符串，就更简单了！</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf4453fd37b0a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="11-将参数转成数组"><a href="#11-将参数转成数组" class="headerlink" title="11.将参数转成数组"></a>11.将参数转成数组</h2><p>函数里的arguments，虽然拥有length属性，但是arguments不是一个数组，是一个类数组，没有push,slice等方法。有些时候，需要把arguments转成数组，转的方法也不止一个，推荐的是是下面的写法！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var _arguments=Array.prototype.slice.apply(arguments)</span><br></pre></td></tr></table></figure>
+<h2 id="12-函数节流"><a href="#12-函数节流" class="headerlink" title="12.函数节流"></a>12.函数节流</h2><p>这里拿一个栗子说，比如mousemove,onscroll,onresize这些事件触发的时候，可能已经触发了60次事件，这样很消耗性能，而且实际上，我们并不需要这么频繁的触发，只要大约100毫秒触发一次就好！那么这样就需要函数节流了！</p>
+<p>普通写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var count = 0;</span><br><span class="line">function beginCount() &#123;</span><br><span class="line">    count++;</span><br><span class="line">    console.log(count);</span><br><span class="line">&#125;</span><br><span class="line">document.onmousemove = function () &#123;</span><br><span class="line">   beginCount();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf4453fbde66a?imageslim" alt="img"></p>
+<p>节流写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var count = 0;</span><br><span class="line">function beginCount() &#123;</span><br><span class="line">    count++;</span><br><span class="line">    console.log(count);</span><br><span class="line">&#125;</span><br><span class="line">function delayFn(method, thisArg) &#123;</span><br><span class="line">    clearTimeout(method.props);</span><br><span class="line">    method.props = setTimeout(function () &#123;</span><br><span class="line">        method.call(thisArg)</span><br><span class="line">    &#125;,100)</span><br><span class="line">&#125;</span><br><span class="line">document.onmousemove = function () &#123;</span><br><span class="line">    delayFn(beginCount)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf445673b76fc?imageslim" alt="img"></p>
+<p>这种方式，其实是有问题的，在不断触发停下来等待100ms才开始执行，中间操作得太快直接无视。于是在网上找到下面这种方案！</p>
+<p>第二种节流写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function delayFn2 (fn, delay, mustDelay)&#123;</span><br><span class="line">     var timer = null;</span><br><span class="line">     var t_start;</span><br><span class="line">     return function()&#123;</span><br><span class="line">         var context = this, args = arguments, t_cur = +new Date();</span><br><span class="line">         //先清理上一次的调用触发（上一次调用触发事件不执行）</span><br><span class="line">         clearTimeout(timer);</span><br><span class="line">         //如果不存触发时间，那么当前的时间就是触发时间</span><br><span class="line">         if(!t_start)&#123;</span><br><span class="line">             t_start = t_cur;</span><br><span class="line">         &#125;</span><br><span class="line">         //如果当前时间-触发时间大于最大的间隔时间（mustDelay），触发一次函数运行函数</span><br><span class="line">         if(t_cur - t_start &gt;= mustDelay)&#123;</span><br><span class="line">             fn.apply(context, args);</span><br><span class="line">             t_start = t_cur;</span><br><span class="line">         &#125;</span><br><span class="line">         //否则延迟执行</span><br><span class="line">         else &#123;</span><br><span class="line">             timer = setTimeout(function()&#123;</span><br><span class="line">                 fn.apply(context, args);</span><br><span class="line">             &#125;, delay);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;;</span><br><span class="line">&#125;</span><br><span class="line">var count=0;</span><br><span class="line">function fn1()&#123;</span><br><span class="line">    count++;</span><br><span class="line">    console.log(count)</span><br><span class="line">&#125; </span><br><span class="line">//100ms内连续触发的调用，后一个调用会把前一个调用的等待处理掉，但每隔200ms至少执行一次</span><br><span class="line">document.onmousemove=delayFn2(fn1,100,200)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf44576a04947?imageslim" alt="img"></p>
+<blockquote>
+<p>我现在函数节流用得很少，这两个写法是比较基础的，希望大家能共享下自己的比较好的方法！</p>
+</blockquote>
+<h2 id="13-其他写作建议"><a href="#13-其他写作建议" class="headerlink" title="13.其他写作建议"></a>13.其他写作建议</h2><p>关于其它的一些写法技巧和建议，都是比较老生常谈的，比如命名规范，函数单一性原则等。这一部分内容我自己总结和别人写的基本一致！我就不展开说了（感觉展开说也基本是复制粘贴别人的文章，这事我不干），所以我推荐大家去看这篇文章（<a href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F28910636" target="_blank" rel="noopener">如何优雅的编写 JavaScript 代码</a>）。有些知识我也是从这里获得的！</p>
+<h2 id="14-小结"><a href="#14-小结" class="headerlink" title="14.小结"></a>14.小结</h2><p>好了，关于我自己总结的一些实用技巧和建议，就到这里了！关于javascript的技巧和建议，这点大家还是要多看网上的资源，也要自己多总结，毕竟我自己总结的只是我自己发现的，只是冰山一角。但还是希望这篇文章能帮到大家，让大家学习到知识。当然，更希望的是能起到一个交流意见的作用。如果大家有什么建议，技巧。也欢迎分享。觉得我哪里写错了，写得不够好，也欢迎指出！让大家一起互相帮助，互相学习！</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端"><span class="toc-text">前端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-实用技巧和写法建议"><span class="toc-text">JavaScript 实用技巧和写法建议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言"><span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-更短的数组去重写法"><span class="toc-text">2.更短的数组去重写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-对象深浅拷贝"><span class="toc-text">3.对象深浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假-深拷贝"><span class="toc-text">假-深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#真-深拷贝"><span class="toc-text">真-深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-使用事件委托"><span class="toc-text">4.使用事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-使用对象作为函数参数"><span class="toc-text">5.使用对象作为函数参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-使用push和apply合并数组"><span class="toc-text">6.使用push和apply合并数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-text">concat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push-apply"><span class="toc-text">push.apply</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-toFixed保留整数"><span class="toc-text">7.toFixed保留整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-其它类型数据转布尔数据"><span class="toc-text">8.其它类型数据转布尔数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-缓存变量"><span class="toc-text">9.缓存变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for循环缓存length"><span class="toc-text">for循环缓存length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素事件"><span class="toc-text">元素事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-使用innerHTML添加元素"><span class="toc-text">10.使用innerHTML添加元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-将参数转成数组"><span class="toc-text">11.将参数转成数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-函数节流"><span class="toc-text">12.函数节流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-其他写作建议"><span class="toc-text">13.其他写作建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-小结"><span class="toc-text">14.小结</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170514/javascript-practical-tips-and-writing-suggestions.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/前端/"><i class="fa fa-tags"></i>前端</a>
+     
+      <a href="/tags/js/"><i class="fa fa-tags"></i>js</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170518/analysis-of-the-difference-between-json-and-jsonp.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170508/idea-settings.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

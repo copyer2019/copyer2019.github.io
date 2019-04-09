@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>读源码 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="编程,前端,css,js,编程,">
+  
+
+  
+  <meta name="description" content="读懂源码：一步一步实现一个 Vue源码阅读：究竟怎样才算是读懂了？市面上有很多源码分析的文章，就我看到的而言，基本的套路就是梳理流程，讲一讲每个模块的功能，整篇文章有一大半都是直接挂源码。我不禁怀疑，作者真的看懂了吗？为什么我看完后还是什么都不懂呢？事实上一个经过无数次版本迭代的框架源码并不适合初学者直接阅读，因为里面有太多细节，太多噪点，太多枝枝蔓蔓。要想真正理解框架的核心逻辑，必须剥茧抽丝，还原出一个纯净的雏形。如同 jQuery 最早的版本只有六百多行，我相信 Vue 的核心功能也只需要几百行就能实现。所以，读懂源码的标志就是还原，码越薄，真相就越清晰。">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-09-18
+    </span>
+    
+      <span>
+        | <a href="/categories/编程/"><i class="fa fa-bookmark"></i>编程</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    读源码
+  </h1>
+  
+  <article class="passage-article">
+    <p></p>
+<p><strong>如何还原雏形？</strong></p>
+<p>一开始我设想的还原过程就是先删后拆。什么报错信息、参数校验、非核心功能全部砍掉，八千行变成了五千行。然后再拆，按功能模块将一个 Vue.js 拆分成 util.js, observer.js, watcher.js …</p>
+<p>理想状态下，我应该能够理解源码了吧，可做完解剖手术后，我发现里面的逻辑依然纷繁复杂，剪不断，理还乱，草蛇灰线，伏脉千里，即便换了一个更早期更简短的版本，仍然很快又陷入了永无止境的细节中。</p>
+<p>最终我得出结论：与其根据源码还原雏形，不如参考源码自己从头实现一个雏形。</p>
+<p><strong>定义核心</strong></p>
+<p>Version：2.0.4</p>
+<p>只考虑 runtime 版本，不考虑模板编译，不考虑服务端渲染。</p>
+<p>核心功能：响应式的数据绑定、虚拟 DOM、diff 算法、patch 方法（用于更新真实 DOM）</p>
+<p>如果你对上述基础概念完全不熟，建议先积累一些背景知识：关于响应式绑定参考<a href="http://www.cnblogs.com/kidney/p/6052935.html" target="_blank" rel="noopener">这篇文章</a>，关于 virtual dom 和 diff 算法参考这个<a href="https://www.youtube.com/watch?v=l2Tu0NqH0qU" target="_blank" rel="noopener">视频</a>。当然，这些并不是必须的。</p>
+<p><strong>目标</strong></p>
+<p><img src="http://images2017.cnblogs.com/blog/925891/201712/925891-20171210203144099-1000919574.png" alt="img"></p>
+<p>事实上，Vue-cli 生成的项目中，<template> 标签中的内容都会被编译为 render 函数，render 函数返回整棵虚拟节点树。我们最终要实现一个 Vue，来完成上面的示例。</template></p>
+<p><strong>当 new Vue() 的时候发生了什么？</strong></p>
+<p>我们的实现会参考源码的套路，但会大量的简化其中的细节。为了理解源码的结构，最好的突破口就是了解程序的起点 new Vue() 的背后究竟发生了什么。</p>
+<p>简单梳理下源码的执行流：</p>
+<p>=&gt; 初始化生命周期</p>
+<p>=&gt; 初始化事件系统</p>
+<p>=&gt; 初始化state，依次处理 props、data、computed …</p>
+<p>=&gt; 开始渲染 _mount() =&gt; _render() 返回 vdom=&gt; _update() =&gt; <strong>patch</strong>() 更新真实DOM</p>
+<p>更详细的说明可以参考<a href="https://github.com/DDFE/DDFE-blog/issues/17" target="_blank" rel="noopener">这篇文章</a>，我们只会实现其中最核心的部分</p>
+<p><strong>第一步：将虚拟 DOM 树渲染到真实的 DOM</strong></p>
+<p>每一个 DOM 节点都是一个 node 对象，这个对象含有大量的属性与方法，虚拟 DOM 其实就是超轻量版的 node 对象。</p>
+<p><img src="http://images2017.cnblogs.com/blog/925891/201712/925891-20171210204107208-1422789571.png" alt="img"></p>
+<p>我们要生成的 DOM 树看上去是这样的：</p>
+<p><img src="http://images2017.cnblogs.com/blog/925891/201712/925891-20171210204251833-1151977100.png" alt="img"></p>
+<p>关于 data 参数的属性，请参考<a href="https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5-data-%E5%AF%B9%E8%B1%A1" target="_blank" rel="noopener">官方文档</a></p>
+<p>随后我们会通过 createElm 方法和 createChildren 方法的相互调用，遍历整棵虚拟节点树，生成真实的 DOM 节点树，最后替换到挂载点。</p>
+<p><a href="https://github.com/bison1994/vue-for-learning/blob/master/stage-1/vue-0.1.js" target="_blank" rel="noopener">完整代码</a></p>
+<p><strong>第二步：修改数据，执行 diff 算法，并将变化的部分 patch 到真实 DOM</strong></p>
+<p><img src="http://images2017.cnblogs.com/blog/925891/201712/925891-20171210224300083-1995638876.png" alt="img"></p>
+<p>diff 算法的逻辑比较复杂，可以单独摘出来研究，由于我们的目的是理解框架的核心逻辑，因此代码实现里只考虑了最简单的情形。</p>
+<p><a href="https://github.com/bison1994/vue-for-learning/blob/master/stage-3/vue-0.3.js" target="_blank" rel="noopener">完整代码</a></p>
+<p><strong>第三步：对数据做响应式处理，当数据变化时，自动执行更新方法</strong></p>
+<p><img src="http://images2017.cnblogs.com/blog/925891/201712/925891-20171210224314927-1241933347.jpg" alt="img"></p>
+<p>data 中的每一个属性都会被处理为存取器属性，同时每一个属性都会在闭包中维护一个属于自己的 dep 对象，用于存放该属性的依赖项。当属性被赋予新的值时，就会触发 set 方法，并通知所有依赖项进行更新。</p>
+<p><a href="https://github.com/bison1994/vue-for-learning/blob/master/stage-4/vue-0.4.js" target="_blank" rel="noopener">完整代码</a></p>
+<p>Vue 渐进式的特点，使其上手极其容易，我相信，渐进式的展现框架逻辑的实现过程，也会使理解变得更容</p>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170918/read-source.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/前端/"><i class="fa fa-tags"></i>前端</a>
+     
+      <a href="/tags/css/"><i class="fa fa-tags"></i>css</a>
+     
+      <a href="/tags/js/"><i class="fa fa-tags"></i>js</a>
+     
+      <a href="/tags/编程/"><i class="fa fa-tags"></i>编程</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170922/js-form.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170916/windows-optimization.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

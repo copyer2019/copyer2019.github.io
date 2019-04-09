@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>windows优化 | 七月飞雪</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Windows,Config,操作系统,优化,">
+  
+
+  
+  <meta name="description" content="董沅鑫的小站">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2018-02-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">GODBMW</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 安静写些东西</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/dongyuanxin/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2017-09-16
+    </span>
+    
+      <span>
+        | <a href="/categories/Windows/"><i class="fa fa-bookmark"></i>Windows</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    windows优化
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="windows10-升级后必做优化"><a href="#windows10-升级后必做优化" class="headerlink" title="windows10 升级后必做优化"></a>windows10 升级后必做优化</h1><p>标签：windows ,优化,系统</p>
+<hr>
+<h1 id="windows10-升级后必做优化-1"><a href="#windows10-升级后必做优化-1" class="headerlink" title="windows10 升级后必做优化"></a>windows10 升级后必做优化</h1><h1 id="1-需要关闭的服务"><a href="#1-需要关闭的服务" class="headerlink" title="1.需要关闭的服务"></a>1.需要关闭的服务</h1><p><img src="http://p9.pstatp.com/large/15380004c4dbca420868" alt="windows10升级后必做优化"></p>
+<p>HomeGroupListener（家庭组服务）</p>
+<p>HomeGroupProvider（家庭组服务）</p>
+<p>ip helper(ipv6 服务)</p>
+<p>Computer Browser(默认手动)</p>
+<p>可以被网络和共享中心的网络发现功能取代，设置为手动</p>
+<p>Distributed Link Tracking Client</p>
+<p>个人用户一般用不到，设置为手动</p>
+<p>Distributed Transaction Coordinator(默认手动)</p>
+<p>个人用户一般用不到，也容易受到远程拒绝服务攻击，设置为手动</p>
+<p>Remote Registry 　这个服务是必停的服务之一，设置为禁用</p>
+<p>Secondary Logon(默认手动)</p>
+<p>对于多用户，可以给某用户分配临时的管理员权限，一般不会用到，设置为手动</p>
+<p>Superfetch</p>
+<p>I/O 操作频繁的功能，如果不需要这个功能，设置为禁用</p>
+<p>TCP/IP NetBIOS Helper</p>
+<p>如果网络不使用 NetBIOS 或是 WINS，设置为手动</p>
+<p>Windows Defender Service</p>
+<p>I/O 操作频繁的功能，如果不需要这个功能，设置为禁用</p>
+<p>Windows Search</p>
+<p>I/O 操作频繁的功能，如果不需要这个功能，设置为禁用</p>
+<p>Security Center</p>
+<p>Windows 安全中心服务，可以禁用</p>
+<p>Distributed Link Tracking Client:</p>
+<p>这个功能一般都用不上，完全可以放心禁用。</p>
+<p>Fax</p>
+<p>利用计算机或网络上的可用传真资源发送和接收传真。不用我说了吧，很明显就能看出来是和传真有关的。手动或禁用</p>
+<p>Windows Backup</p>
+<p>提供 Windows 备份和还原功能。Windows 备份和版本恢复功能，一直都不好使，可以关掉</p>
+<p>Windows Error Reporting Service</p>
+<p>没人喜欢错误，对你和微软而言，错误报告传送过去都没什么用。关了它。</p>
+<p>下面演示如何关闭服务：</p>
+<p>按 win+r 按键-&gt;出现运行窗口-&gt;输入 cmd-&gt;回车-&gt;输入 services.msc-&gt;回车</p>
+<p><img src="http://p9.pstatp.com/large/15380002c773b6e35dfe" alt="windows10升级后必做优化"><br><img src="http://p3.pstatp.com/large/153400009df6af424d5d" alt="windows10升级后必做优化"></p>
+<p>输入 services.msc</p>
+<p><img src="http://p1.pstatp.com/large/1533000589024549f450" alt="windows10升级后必做优化"></p>
+<p>找到所示的服务-&gt;右键属性</p>
+<p><img src="http://p1.pstatp.com/large/15360002da57a3f2a6e0" alt="windows10升级后必做优化"></p>
+<p>选择禁用后确定</p>
+<h1 id="2-关闭-Internet-协议-6-TCP-IPv6"><a href="#2-关闭-Internet-协议-6-TCP-IPv6" class="headerlink" title="2.关闭 Internet 协议 6 TCP/IPv6 :"></a>2.<strong>关闭 Internet 协议 6 TCP/IPv6 :</strong></h1><p>网络-&gt;属性-&gt;适配器配置-&gt;选择你使用的适配器-&gt;属性-&gt;勾选掉 ipv6-&gt;保存****</p>
+<p><img src="http://p3.pstatp.com/large/15360002def9747f5734" alt="windows10升级后必做优化"></p>
+<p><img src="http://p1.pstatp.com/large/15360002df0b385f860a" alt="windows10升级后必做优化"></p>
+<p><img src="http://p9.pstatp.com/large/15320002dcc4d7ac10e9" alt="windows10升级后必做优化"></p>
+<p>最后确定保存</p>
+<h1 id="3-清理产生的-Windows-old-文件夹（针对直接升级的系统）"><a href="#3-清理产生的-Windows-old-文件夹（针对直接升级的系统）" class="headerlink" title="3.清理产生的 Windows.old 文件夹（针对直接升级的系统）"></a><strong>3.清理产生的 Windows.old 文件夹（针对直接升级的系统）</strong></h1><p><strong>操作方法：进入我的电脑 -&gt;c 盘-&gt;磁盘清理-&gt;系统文件清理</strong></p>
+<p><img src="http://p1.pstatp.com/large/15380002d213ff92a067" alt="windows10升级后必做优化"></p>
+<p><img src="http://p9.pstatp.com/large/15320002e09e7559cdb9" alt="windows10升级后必做优化"></p>
+<p><img src="http://p1.pstatp.com/large/15380002d214cfe9f4ba" alt="windows10升级后必做优化"></p>
+<p><img src="http://p9.pstatp.com/large/15320002e09f60ff3ea3" alt="windows10升级后必做优化"></p>
+<p><img src="http://p3.pstatp.com/large/1537000001267691c466" alt="windows10升级后必做优化"></p>
+<p>确定后会自动清理</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#windows10-升级后必做优化"><span class="toc-text">windows10 升级后必做优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows10-升级后必做优化-1"><span class="toc-text">windows10 升级后必做优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-需要关闭的服务"><span class="toc-text">1.需要关闭的服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-关闭-Internet-协议-6-TCP-IPv6"><span class="toc-text">2.关闭 Internet 协议 6 TCP/IPv6 :</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-清理产生的-Windows-old-文件夹（针对直接升级的系统）"><span class="toc-text">3.清理产生的 Windows.old 文件夹（针对直接升级的系统）</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 董沅鑫</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://copyer2019.github.io/20170916/windows-optimization.html</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Config/"><i class="fa fa-tags"></i>Config</a>
+     
+      <a href="/tags/操作系统/"><i class="fa fa-tags"></i>操作系统</a>
+     
+      <a href="/tags/优化/"><i class="fa fa-tags"></i>优化</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/20170918/read-source.html" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/20170913/centering-in-the-web-front-end-eight-methods.html" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
